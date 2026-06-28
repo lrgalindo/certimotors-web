@@ -1,0 +1,28 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 260 52"
+  width="260"
+  height="52"
+  role="img"
+  aria-label="CERTIMOTORS — Inspección certificada Guatemala"
+>
+  <title>CERTIMOTORS</title>
+  <desc>Logo de CERTIMOTORS. Wordmark tipográfico: CERTI en peso regular, separador dorado vertical, MOTORS en negrita.</desc>
+
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&amp;display=swap');
+      .certi   { font-family: 'DM Sans', sans-serif; font-size: 32px; font-weight: 400; fill: #1c1e54; letter-spacing: -0.01em; }
+      .motors  { font-family: 'DM Sans', sans-serif; font-size: 32px; font-weight: 700; fill: #1c1e54; letter-spacing: -0.01em; }
+      .tagline { font-family: 'DM Sans', sans-serif; font-size: 9px;  font-weight: 400; fill: #C8973A; letter-spacing: 0.18em; }
+    </style>
+  </defs>
+
+  <!-- Wordmark row: CERTI | separator | MOTORS -->
+  <text class="certi"  x="0"   y="33">CERTI</text>
+  <rect x="94" y="6" width="1.5" height="27" fill="#C8973A"/>
+  <text class="motors" x="106" y="33">MOTORS</text>
+
+  <!-- Tagline -->
+  <text class="tagline" x="0" y="48" text-anchor="start">INSPECCIÓN CERTIFICADA · GUATEMALA</text>
+</svg>

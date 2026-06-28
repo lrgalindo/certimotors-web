@@ -1,0 +1,153 @@
+/*
+ * CERTIMOTORS — Design Tokens
+ * Stripe-inspired system adapted for automotive inspection brand
+ * Source: DESIGN.md + Claude Design exploration v1.0
+ */
+
+/* ── Google Font ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,700&display=swap');
+
+:root {
+  /* ── Brand palette ─────────────────────────────────────── */
+  --cm-navy:          #1c1e54;   /* brand-dark-900 · headers, dark surfaces      */
+  --cm-gold:          #C8973A;   /* primary accent · CTAs, separators, taglines  */
+  --cm-gold-deep:     #a37828;   /* primary-deep  · hover state                  */
+  --cm-gold-press:    #7a5a1e;   /* primary-press · active/pressed state          */
+  --cm-gold-soft:     #d9aa54;   /* primary-soft  · subtle highlight             */
+  --cm-gold-bg:       #f5e9d4;   /* canvas-cream  · badge fills, call-out tints  */
+
+  /* ── Ink / text ────────────────────────────────────────── */
+  --cm-ink:           #0d253d;   /* primary text on light surfaces               */
+  --cm-ink-secondary: #273951;   /* secondary text                               */
+  --cm-ink-mute:      #64748d;   /* captions, micro-text                         */
+
+  /* ── Surfaces ──────────────────────────────────────────── */
+  --cm-canvas:        #ffffff;   /* white background                             */
+  --cm-canvas-soft:   #f6f9fc;   /* alternate section background                 */
+  --cm-hairline:      #e3e8ee;   /* borders, table dividers                      */
+
+  /* ── Typography ────────────────────────────────────────── */
+  --cm-font:          'DM Sans', 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Logo wordmark sizes (scale from these) */
+  --cm-logo-sm:       18px;      /* compact header, mobile                       */
+  --cm-logo-md:       24px;      /* default web header                           */
+  --cm-logo-lg:       32px;      /* hero / presentation                          */
+  --cm-logo-xl:       48px;      /* large display                                */
+
+  /* Display type — thin weight, negative tracking */
+  --cm-display-xxl:   56px;
+  --cm-display-xl:    48px;
+  --cm-display-lg:    32px;
+  --cm-display-md:    26px;
+  --cm-display-tracking: -0.025em;
+  --cm-display-weight: 300;
+
+  /* Body */
+  --cm-body-lg:       16px;
+  --cm-body-md:       15px;      /* default body */
+  --cm-body-weight:   400;
+
+  /* Numerics / pricing — tabular figures */
+  --cm-tnum:          'tnum';    /* font-feature-settings: var(--cm-tnum) */
+
+  /* ── Spacing (8px base) ─────────────────────────────────── */
+  --cm-space-xxs:     2px;
+  --cm-space-xs:      4px;
+  --cm-space-sm:      8px;
+  --cm-space-md:      12px;
+  --cm-space-lg:      16px;
+  --cm-space-xl:      24px;
+  --cm-space-xxl:     32px;
+  --cm-space-huge:    64px;
+
+  /* ── Border radius ──────────────────────────────────────── */
+  --cm-radius-xs:     4px;
+  --cm-radius-sm:     6px;
+  --cm-radius-md:     8px;
+  --cm-radius-lg:     12px;
+  --cm-radius-xl:     16px;
+  --cm-radius-pill:   9999px;
+
+  /* ── Elevation ──────────────────────────────────────────── */
+  --cm-shadow-card:   rgba(0, 55, 112, 0.08) 0 1px 3px;
+  --cm-shadow-float:  rgba(0, 55, 112, 0.08) 0 8px 24px,
+                      rgba(0, 55, 112, 0.04) 0 2px 6px;
+}
+
+/* ── Utility classes ─────────────────────────────────────── */
+
+/* Logo wordmark — add to any <div> wrapping the logo component */
+.cm-logo-sm { font-size: var(--cm-logo-sm); }
+.cm-logo-md { font-size: var(--cm-logo-md); }
+.cm-logo-lg { font-size: var(--cm-logo-lg); }
+
+/* Button — pill primary (gold) */
+.cm-btn-primary {
+  display:          inline-flex;
+  align-items:      center;
+  justify-content:  center;
+  padding:          8px 16px;
+  background:       var(--cm-gold);
+  color:            #ffffff;
+  font-family:      var(--cm-font);
+  font-size:        16px;
+  font-weight:      500;
+  border-radius:    var(--cm-radius-pill);
+  border:           none;
+  cursor:           pointer;
+  transition:       background 0.12s ease;
+  text-decoration:  none;
+  white-space:      nowrap;
+}
+.cm-btn-primary:hover  { background: var(--cm-gold-deep); }
+.cm-btn-primary:active { background: var(--cm-gold-press); }
+
+/* Button — outline on light surface */
+.cm-btn-secondary {
+  display:          inline-flex;
+  align-items:      center;
+  justify-content:  center;
+  padding:          8px 16px;
+  background:       transparent;
+  color:            var(--cm-gold);
+  font-family:      var(--cm-font);
+  font-size:        16px;
+  font-weight:      500;
+  border-radius:    var(--cm-radius-pill);
+  border:           1px solid var(--cm-gold);
+  cursor:           pointer;
+  transition:       background 0.12s ease;
+  text-decoration:  none;
+}
+.cm-btn-secondary:hover { background: var(--cm-gold-bg); }
+
+/* Card */
+.cm-card {
+  background:    var(--cm-canvas);
+  border:        1px solid var(--cm-hairline);
+  border-radius: var(--cm-radius-lg);
+  padding:       var(--cm-space-xxl);
+  box-shadow:    var(--cm-shadow-card);
+}
+
+/* Badge — status pill */
+.cm-badge {
+  display:          inline-block;
+  padding:          3px 10px;
+  background:       var(--cm-gold-bg);
+  color:            #9b6829;
+  font-family:      var(--cm-font);
+  font-size:        11px;
+  font-weight:      600;
+  letter-spacing:   0.04em;
+  border-radius:    var(--cm-radius-pill);
+  text-transform:   uppercase;
+}
+
+/* Numeric / price — always use tnum */
+.cm-price {
+  font-family:          var(--cm-font);
+  font-feature-settings: var(--cm-tnum);
+  letter-spacing:       -0.02em;
+}
