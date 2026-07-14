@@ -4,7 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CERTIMOTORS — Inspección independiente de vehículos · Guatemala</title>
-  <meta name="description" content="Inspección técnica independiente de 110 puntos y verificación legal antes de comprar tu vehículo usado en Guatemala. Reporte con veredicto ejecutivo en 24–48h. Desde Q650.">
+  <meta name="description" content="Inspección técnica independiente de 110 puntos y verificación legal antes de comprar tu vehículo usado en Guatemala. Scanner Q300 · Estándar Q550 · Full Q800. Reporte en 24–48h.">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://certimotors.com/">
+  <meta property="og:title"       content="CERTIMOTORS — Inspección independiente de vehículos · Guatemala">
+  <meta property="og:description" content="Inspección técnica independiente de 110 puntos y verificación legal antes de comprar tu vehículo usado en Guatemala. Scanner Q300 · Estándar Q550 · Full Q800. Reporte en 24–48h.">
+  <meta property="og:image"       content="https://certimotors.com/logo.svg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "CERTIMOTORS",
+    "description": "Inspección técnica independiente de vehículos usados en Guatemala. 110 puntos de inspección más verificación legal. Reporte con veredicto ejecutivo en 24–48h.",
+    "url": "https://certimotors.com",
+    "telephone": "+50241151444",
+    "areaServed": [
+      "Ciudad de Guatemala",
+      "Mixco",
+      "Villa Nueva",
+      "Chinautla",
+      "San Miguel Petapa",
+      "Santa Catarina Pinula",
+      "Villa Canales",
+      "San José Pinula",
+      "Amatitlán",
+      "Fraijanes"
+    ],
+    "priceRange": "Q300–Q800",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de inspección vehicular",
+      "itemListElement": [
+        { "@type": "Offer", "name": "Inspección Scanner",   "price": "300", "priceCurrency": "GTQ" },
+        { "@type": "Offer", "name": "Inspección Estándar",  "price": "550", "priceCurrency": "GTQ" },
+        { "@type": "Offer", "name": "Inspección Full",      "price": "800", "priceCurrency": "GTQ" }
+      ]
+    }
+  }
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-17RQ4B76BR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-17RQ4B76BR');
+  </script>
   <link rel="stylesheet" href="tokens.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -221,19 +266,65 @@
     /* ═══════════════════════════════════════════════════════════
        SERVICIOS
     ═══════════════════════════════════════════════════════════ */
-    #servicios { background: var(--cm-canvas); padding: 110px 0; }
-    .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 860px; margin-top: 50px; }
-    .card { border-radius: 16px; padding: 34px; display: flex; flex-direction: column; gap: 20px; transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out); }
-    .card-std { background: var(--cm-canvas); border: 1px solid var(--cm-hairline); }
-    .card-std:hover { transform: translateY(-6px); box-shadow: var(--cm-shadow-float); }
-    .card-full { background: var(--cm-navy); position: relative; overflow: hidden; box-shadow: 0 18px 50px rgba(28,30,84,0.28); }
-    .card-full:hover { transform: translateY(-6px); }
-    .card-full::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; border-radius:50%; background: radial-gradient(circle, rgba(200,151,58,0.35), transparent 70%); pointer-events:none; }
-    .card-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-    .c-mute{color:var(--cm-ink-mute)} .c-gold{color:var(--cm-gold)} .c-navy{color:var(--cm-navy)}
-    .c-white{color:var(--cm-canvas)} .c-w50{color:var(--white-50)} .c-w68{color:var(--white-68)}
-    .card-price { font-size: 50px; font-weight: 300; letter-spacing: -0.03em; line-height: 1; font-feature-settings: "tnum"; position: relative; z-index: 1; }
-    .card-per { font-size: 13px; margin-top: 4px; }
+    #servicios {
+      background: var(--cm-canvas);
+      padding: 96px 0;
+    }
+    .section-hd {
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--cm-navy);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 48px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Card shared */
+    .card {
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .card-std {
+      background: var(--cm-canvas);
+      border: 1px solid var(--cm-hairline);
+    }
+    .card-full {
+      background: var(--cm-navy);
+      position: relative;
+    }
+
+    .card-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .c-mute  { color: var(--cm-ink-mute); }
+    .c-gold  { color: var(--cm-gold); }
+    .c-navy  { color: var(--cm-navy); }
+    .c-white { color: var(--cm-canvas); }
+    .c-w50   { color: var(--white-50); }
+    .c-w68   { color: var(--white-68); }
+
+    .card-price {
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      font-feature-settings: "tnum";
+    }
+    .card-per {
+      font-size: 13px;
+      margin-top: 4px;
+    }
     .card-hr-light { height: 1px; background: var(--cm-hairline); }
     .card-hr-dark  { height: 1px; background: var(--white-12); }
     .card-note { font-size: 13px; }
@@ -245,6 +336,36 @@
     .btn-gold-block { display: block; padding: 14px; background: var(--cm-gold); color: var(--cm-canvas); font-size: 15px; font-weight: 500; border-radius: var(--cm-radius-pill); text-align: center; transition: background 0.15s ease; position: relative; z-index: 1; }
     .btn-gold-block:hover { background: var(--cm-gold-deep); }
     .card-badge-abs { position: absolute; top: 22px; right: 22px; z-index: 2; }
+
+    /* ═══════════════════════════════════════════════════════════
+       PACK BANNER
+    ═══════════════════════════════════════════════════════════ */
+    #pack {
+      background: var(--cm-navy);
+      padding: 48px 0;
+    }
+    .pack-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .pack-text { flex: 1; min-width: 260px; }
+    .pack-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cm-gold);
+      margin-bottom: 10px;
+    }
+    .pack-p {
+      font-size: 17px;
+      color: var(--cm-canvas);
+      line-height: 1.55;
+      font-weight: 300;
+    }
 
     /* ═══════════════════════════════════════════════════════════
        QUÉ INSPECCIONAMOS — 110 puntos
@@ -305,6 +426,175 @@
     .ic-ok { background: var(--cm-gold); color: #fff; }
 
     /* ═══════════════════════════════════════════════════════════
+       MUESTRA
+    ═══════════════════════════════════════════════════════════ */
+    #muestra {
+      background: var(--cm-canvas);
+      padding: 96px 0;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--cm-ink-mute);
+      line-height: 1.6;
+      margin-top: -32px;
+      margin-bottom: 48px;
+      max-width: 560px;
+    }
+    .muestra-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 600px;
+    }
+    .muestra-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 28px 24px;
+      background: var(--cm-canvas-soft);
+      border: 1px solid var(--cm-hairline);
+      border-radius: 12px;
+    }
+    .muestra-label {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--cm-navy);
+    }
+    .muestra-hint {
+      font-size: 13px;
+      color: var(--cm-ink-mute);
+      line-height: 1.5;
+    }
+    .btn-muestra {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      background: transparent;
+      color: var(--cm-gold);
+      font-family: var(--cm-font);
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid var(--cm-gold);
+      border-radius: var(--cm-radius-pill);
+      transition: background 0.15s ease;
+      margin-top: 4px;
+    }
+    .btn-muestra:hover { background: var(--cm-gold-bg); }
+
+    /* ═══════════════════════════════════════════════════════════
+       TESTIMONIO
+    ═══════════════════════════════════════════════════════════ */
+    #testimonio {
+      background: var(--cm-canvas-soft);
+      padding: 96px 0;
+    }
+    .testimonio-wrap {
+      max-width: 580px;
+    }
+    .testimonio-card {
+      padding: 40px 36px;
+      background: var(--cm-canvas);
+      border: 1px solid var(--cm-hairline);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .testimonio-quote {
+      font-size: 19px;
+      font-weight: 300;
+      color: var(--cm-navy);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+    }
+    .testimonio-quote::before { content: '\201C'; color: var(--cm-gold); }
+    .testimonio-quote::after  { content: '\201D'; color: var(--cm-gold); }
+    .testimonio-author {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .testimonio-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--cm-ink);
+    }
+    .testimonio-loc {
+      font-size: 13px;
+      color: var(--cm-ink-mute);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       COBERTURA
+    ═══════════════════════════════════════════════════════════ */
+    #cobertura {
+      background: var(--cm-canvas);
+      padding: 96px 0;
+    }
+    .cobertura-table {
+      max-width: 560px;
+      border: 1px solid var(--cm-hairline);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--cm-canvas);
+      margin-bottom: 20px;
+    }
+    .cob-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      font-size: 14px;
+    }
+    .cob-row + .cob-row { border-top: 1px solid var(--cm-hairline); }
+    .cob-zona { color: var(--cm-ink); }
+    .cob-precio {
+      font-weight: 500;
+      color: var(--cm-navy);
+      white-space: nowrap;
+    }
+    .cob-precio.gratis { color: var(--cm-gold); }
+    .cob-precio.cotizar { color: var(--cm-ink-mute); font-style: italic; font-weight: 400; }
+    .cobertura-footer {
+      font-size: 14px;
+      color: var(--cm-ink-mute);
+      max-width: 560px;
+    }
+    .cobertura-footer a {
+      color: var(--cm-gold);
+      font-weight: 500;
+    }
+    .cobertura-footer a:hover { text-decoration: underline; }
+
+    /* ═══════════════════════════════════════════════════════════
+       B2B
+    ═══════════════════════════════════════════════════════════ */
+    #b2b {
+      background: var(--cm-canvas-soft);
+      padding: 96px 0;
+    }
+    .b2b-inner {
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .section-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cm-gold);
+    }
+    .b2b-copy {
+      font-size: 16px;
+      color: var(--cm-ink-mute);
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
        FAQ
     ═══════════════════════════════════════════════════════════ */
     #faq { background: var(--cm-canvas-soft); padding: 110px 0; }
@@ -352,14 +642,39 @@
       .trust-item:nth-child(1) { border-right: 1px solid var(--cm-hairline); border-bottom: 1px solid var(--cm-hairline); }
       .trust-item:nth-child(2) { border-bottom: 1px solid var(--cm-hairline); }
       .trust-item:nth-child(3) { border-right: 1px solid var(--cm-hairline); }
+
+      /* Cards: 3-col → stack */
       .cards-grid { grid-template-columns: 1fr; max-width: 100%; }
       .insp-grid { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr; gap: 40px; }
+
+      /* Steps: row → column */
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .step { padding: 0; }
+      .step + .step::before { display: none; }
       .steps-rail { display: none; }
+
       .compare { grid-template-columns: 1fr; }
-      #servicios, #como, #faq, #puntos, #porque { padding: 72px 0; }
-      #cta-final { padding: 80px 24px; }
-      .hero-actions { width: 100%; } .btn-primary, .btn-ghost { flex: 1; justify-content: center; }
+
+      /* Muestra grid → stack */
+      .muestra-grid { grid-template-columns: 1fr; max-width: 100%; }
+
+      /* Pack banner → stack */
+      .pack-inner { flex-direction: column; align-items: flex-start; }
+
+      /* Sections */
+      #servicios, #como, #faq, #muestra, #testimonio, #cobertura, #b2b, #puntos, #porque { padding: 64px 0; }
+      #cta-final { padding: 64px 24px; }
+      .section-hd { font-size: 28px; margin-bottom: 36px; }
+      .section-sub { margin-top: -24px; margin-bottom: 36px; }
+      .cta-h2 { font-size: 28px; }
+      .btn-cta-lg { font-size: 16px; padding: 14px 24px; }
+
+      /* Navbar */
+      .btn-nav { font-size: 13px; padding: 8px 14px; }
+      .nav-link { display: none; }
       .scroll-cue { display: none; }
     }
 
@@ -368,6 +683,147 @@
       .hero-aura, .aura-gold, .aura-blue, .scroll-mouse::before, .hero-badge .dot, .wa-fab::after { animation: none !important; }
       html { scroll-behavior: auto; }
       * { transition-duration: 0.01ms !important; }
+    }
+
+    /* ── CHECKOUT MODAL ─────────────────────────────────────── */
+    dialog#checkout-modal {
+      padding: 0;
+      border: none;
+      border-radius: var(--cm-radius-lg);
+      box-shadow: var(--cm-shadow-float);
+      max-width: 520px;
+      width: calc(100% - 32px);
+      max-height: 90vh;
+      overflow-y: auto;
+      background: var(--cm-canvas);
+    }
+    dialog#checkout-modal::backdrop {
+      background: rgba(28, 30, 84, 0.55);
+      backdrop-filter: blur(2px);
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--cm-ink-mute);
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: background .15s;
+    }
+    .modal-close:hover { background: var(--cm-canvas-soft); }
+    .modal-header {
+      padding: 28px 28px 0;
+    }
+    .modal-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cm-navy);
+      margin-top: 8px;
+      line-height: 1.2;
+    }
+    #checkout-form {
+      padding: 20px 28px 28px;
+    }
+    .form-section { margin-bottom: 20px; }
+    .form-section-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--cm-ink-mute);
+      margin-bottom: 12px;
+    }
+    .form-row { margin-bottom: 12px; }
+    .form-row label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--cm-ink-secondary);
+      margin-bottom: 4px;
+    }
+    .req { color: var(--cm-gold); }
+    .form-hint { font-size: 11px; color: var(--cm-ink-mute); margin-top: 3px; }
+    .form-hint-inline { font-size: 11px; color: var(--cm-ink-mute); font-weight: 400; }
+    .form-row input,
+    .form-row select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid var(--cm-hairline);
+      border-radius: var(--cm-radius-md);
+      font-family: var(--cm-font);
+      font-size: 15px;
+      color: var(--cm-ink);
+      background: var(--cm-canvas);
+      outline: none;
+      transition: border-color .15s;
+      -webkit-appearance: none;
+    }
+    .form-row input:focus,
+    .form-row select:focus { border-color: var(--cm-navy); }
+    .form-row input::placeholder { color: var(--cm-ink-mute); }
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .form-error {
+      background: #fff3f3;
+      border: 1px solid #f5b8b8;
+      border-radius: var(--cm-radius-md);
+      color: #c0392b;
+      font-size: 13px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+    .btn-full { width: 100%; justify-content: center; }
+    .form-legal {
+      font-size: 11px;
+      color: var(--cm-ink-mute);
+      text-align: center;
+      margin-top: 10px;
+    }
+    .form-legal-wa { color: var(--cm-gold); font-weight: 500; }
+
+    /* ── PAID SCREEN ────────────────────────────────────────── */
+    #paid-screen {
+      padding: 80px 0;
+      background: var(--cm-canvas);
+    }
+    .paid-inner {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .paid-check {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--cm-navy);
+      color: #fff;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .paid-h1 { font-size: 32px; font-weight: 700; color: var(--cm-navy); }
+    .paid-p  { font-size: 16px; color: var(--cm-ink-secondary); line-height: 1.6; max-width: 400px; }
+    .paid-link { font-size: 14px; color: var(--cm-ink-mute); margin-top: 8px; }
+    .paid-link:hover { color: var(--cm-navy); }
+
+    @media (max-width: 480px) {
+      dialog#checkout-modal { width: 100%; max-height: 95dvh; border-radius: 16px 16px 0 0; align-self: flex-end; }
+      .modal-header { padding: 20px 20px 0; }
+      #checkout-form { padding: 16px 20px 24px; }
+      .form-row-2 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -382,7 +838,10 @@
         <div class="logo-row"><span class="lc">CERTI</span><div class="ls" aria-hidden="true"></div><span class="lm">MOTORS</span></div>
         <span class="lt">Inspección certificada · Guatemala</span>
       </a>
-      <a href="/" class="nav-logo-light" aria-label="CERTIMOTORS — inicio"><img src="logo.svg" alt="CERTIMOTORS" height="32"></a>
+      <!-- Light logo (img svg): visible on scrolled white navbar -->
+      <a href="/" class="nav-logo-light" aria-label="CERTIMOTORS — inicio">
+        <img src="logo.svg" alt="CERTIMOTORS" height="32">
+      </a>
 
       <div class="nav-right">
         <div class="nav-links">
@@ -410,13 +869,8 @@
         <p class="hero-sub hero-anim ha-3">
           Inspección técnica de 110 puntos + verificación legal completa, antes de que pongas un solo quetzal. Reporte con veredicto ejecutivo en 24–48h.
         </p>
-        <div class="hero-actions hero-anim ha-4">
-          <a href="#" data-wa class="btn-primary">Solicitar por WhatsApp
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="#servicios" class="btn-ghost">Ver planes y precios</a>
-        </div>
-        <p class="hero-micro hero-anim ha-5">Desde <b>Q650</b> · Válido 90 días · Reporte con QR de autenticidad</p>
+        <a href="#" data-wa class="btn-primary">Solicitar por WhatsApp →</a>
+        <p class="hero-micro">Desde Q300 · Válido 90 días · QR de autenticidad</p>
       </div>
     </div>
     <a href="#trust" class="scroll-cue" aria-hidden="true">
@@ -440,16 +894,32 @@
   <!-- ── SERVICIOS ───────────────────────────────────────────── -->
   <section id="servicios" aria-labelledby="servicios-hd">
     <div class="container">
-      <div data-reveal>
-        <p class="section-eyebrow">Planes</p>
-        <h2 id="servicios-hd" class="section-hd">Elige tu nivel de certeza</h2>
-        <p class="section-lead">Dos niveles, una misma promesa: trabajamos solo para ti, el comprador. Nunca para el vendedor.</p>
-      </div>
-      <div class="cards-grid" data-stagger>
+      <h2 id="servicios-hd" class="section-hd fi">Elige tu nivel de certeza</h2>
+      <div class="cards-grid fi fi-d1">
+
+        <!-- Scanner -->
+        <div class="card card-std">
+          <p class="card-eyebrow c-mute">Scanner</p>
+          <div>
+            <div class="card-price c-navy cm-price">Q 300</div>
+            <div class="card-per c-mute">por inspección</div>
+          </div>
+          <div class="card-hr-light"></div>
+          <ul class="feat-list">
+            <li><span class="feat-check">✓</span><span class="c-navy">Escaneo electrónico de fallas del sistema del vehículo</span></li>
+            <li><span class="feat-check">✓</span><span class="c-navy">Reporte digital con códigos de error detectados</span></li>
+            <li><span class="feat-check">✓</span><span class="c-navy">Ideal como primer filtro antes de decidir</span></li>
+          </ul>
+          <a href="#" data-checkout="SCANNER" class="btn-outline">Solicitar Scanner</a>
+        </div>
+
         <!-- Estándar -->
         <div class="card card-std">
           <p class="card-eyebrow c-mute">Estándar</p>
-          <div><div class="card-price c-navy cm-price">Q 650</div><div class="card-per c-mute">por inspección</div></div>
+          <div>
+            <div class="card-price c-navy cm-price">Q 550</div>
+            <div class="card-per c-mute">por inspección</div>
+          </div>
           <div class="card-hr-light"></div>
           <ul class="feat-list">
             <li><span class="feat-check">✓</span><span class="c-navy">Inspección técnica de 110 puntos</span></li>
@@ -458,13 +928,16 @@
             <li><span class="feat-check">✓</span><span class="c-navy">QR de autenticidad verificable</span></li>
             <li><span class="feat-check">✓</span><span class="c-navy">Validez 90 días</span></li>
           </ul>
-          <a href="#" data-wa class="btn-outline">Solicitar Estándar</a>
+          <a href="#" data-checkout="ESTANDAR" class="btn-outline">Solicitar Estándar</a>
         </div>
         <!-- Full -->
         <div class="card card-full">
           <span class="cm-badge card-badge-abs">Recomendado</span>
           <p class="card-eyebrow c-gold">Full</p>
-          <div><div class="card-price c-white cm-price">Q 1,400</div><div class="card-per c-w50">por inspección</div></div>
+          <div>
+            <div class="card-price c-white cm-price">Q 800</div>
+            <div class="card-per c-w50">por inspección</div>
+          </div>
           <div class="card-hr-dark"></div>
           <p class="card-note c-w68">Todo lo del Estándar, más:</p>
           <ul class="feat-list">
@@ -474,7 +947,7 @@
             <li><span class="feat-check">✓</span><span class="c-white">Historial de multas de tránsito</span></li>
             <li><span class="feat-check">✓</span><span class="c-white">Validación de propietario en SAT</span></li>
           </ul>
-          <a href="#" data-wa class="btn-gold-block">Solicitar Full</a>
+          <a href="#" data-checkout="FULL" class="btn-gold-block">Solicitar Full</a>
         </div>
       </div>
     </div>
@@ -582,7 +1055,107 @@
     </div>
   </section>
 
-  <!-- ── FAQ ─────────────────────────────────────────────────── -->
+  <!-- ── PACK BANNER ───────────────────────────────────────── -->
+  <section id="pack" aria-label="Pack de inspecciones">
+    <div class="container">
+      <div class="pack-inner fi">
+        <div class="pack-text">
+          <p class="pack-eyebrow">Pack CERTIMOTORS</p>
+          <p class="pack-p">Pack 2 inspecciones: la 2da con 40% de descuento.</p>
+        </div>
+        <a href="#" data-wa-pack class="btn-outline" style="white-space:nowrap;flex-shrink:0;">Preguntar por el Pack</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── MUESTRA ───────────────────────────────────────────── -->
+  <section id="muestra" aria-labelledby="muestra-hd">
+    <div class="container">
+      <h2 id="muestra-hd" class="section-hd fi">Así se ve tu reporte</h2>
+      <p class="section-sub fi fi-d1">Certificados reales generados por nuestro sistema, con datos de ejemplo.</p>
+      <div class="muestra-grid fi fi-d2">
+
+        <div class="muestra-card">
+          <p class="muestra-label">Certificado Estándar</p>
+          <p class="muestra-hint">Ejemplo real generado por nuestro sistema de inspección</p>
+          <a href="assets/muestras/certificado-basico-muestra.pdf" target="_blank" rel="noopener noreferrer" class="btn-muestra">
+            Ver muestra →
+          </a>
+        </div>
+
+        <div class="muestra-card">
+          <p class="muestra-label">Certificado Full</p>
+          <p class="muestra-hint">Ejemplo real generado por nuestro sistema de inspección</p>
+          <a href="assets/muestras/certificado-full-muestra.pdf" target="_blank" rel="noopener noreferrer" class="btn-muestra">
+            Ver muestra →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── TESTIMONIO ────────────────────────────────────────── -->
+  <section id="testimonio" aria-labelledby="testimonio-hd">
+    <div class="container">
+      <h2 id="testimonio-hd" class="section-hd fi">Lo que dicen nuestros clientes</h2>
+      <div class="testimonio-wrap fi fi-d1">
+        <div class="testimonio-card">
+          <p class="testimonio-quote">Excelente servicio, me ahorré mucho dinero al comprar el carro correcto.</p>
+          <div class="testimonio-author">
+            <span class="testimonio-name">Rodrigo Galindo</span>
+            <span class="testimonio-loc">Ciudad de Guatemala, zona 10</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── COBERTURA ─────────────────────────────────────────── -->
+  <section id="cobertura" aria-labelledby="cobertura-hd">
+    <div class="container">
+      <p class="section-eyebrow fi" style="margin-bottom:12px;">Cobertura</p>
+      <h2 id="cobertura-hd" class="section-hd fi">¿Llegamos a tu zona?</h2>
+      <p class="section-sub fi fi-d1">Inspeccionamos donde se encuentre el vehículo, en el área metropolitana de Guatemala. Estas son las zonas con cobertura gratuita y las que tienen un cargo adicional de traslado.</p>
+
+      <div class="cobertura-table fi fi-d2">
+        <div class="cob-row"><span class="cob-zona">Ciudad de Guatemala (zonas 1–19)</span><span class="cob-precio gratis">Gratis</span></div>
+        <div class="cob-row"><span class="cob-zona">Mixco</span><span class="cob-precio gratis">Gratis</span></div>
+        <div class="cob-row"><span class="cob-zona">Villa Nueva</span><span class="cob-precio gratis">Gratis</span></div>
+        <div class="cob-row"><span class="cob-zona">Chinautla</span><span class="cob-precio gratis">Gratis</span></div>
+        <div class="cob-row"><span class="cob-zona">San Miguel Petapa</span><span class="cob-precio">+ Q75</span></div>
+        <div class="cob-row"><span class="cob-zona">Santa Catarina Pinula</span><span class="cob-precio">+ Q75</span></div>
+        <div class="cob-row"><span class="cob-zona">Villa Canales</span><span class="cob-precio">+ Q75</span></div>
+        <div class="cob-row"><span class="cob-zona">San José Pinula</span><span class="cob-precio">+ Q75</span></div>
+        <div class="cob-row"><span class="cob-zona">Amatitlán</span><span class="cob-precio">+ Q75</span></div>
+        <div class="cob-row"><span class="cob-zona">Fraijanes</span><span class="cob-precio">+ Q75</span></div>
+        <div class="cob-row"><span class="cob-zona">Otros municipios / departamentos</span><span class="cob-precio cotizar">A cotizar</span></div>
+      </div>
+
+      <p class="cobertura-footer fi fi-d3">
+        ¿Tu municipio no aparece? <a href="#" data-wa>Escríbenos</a> y lo cotizamos.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ── B2B ───────────────────────────────────────────────── -->
+  <section id="b2b" aria-labelledby="b2b-hd">
+    <div class="container">
+      <div class="b2b-inner fi">
+        <p class="section-eyebrow">Para Empresas</p>
+        <h2 id="b2b-hd" class="section-hd" style="margin-bottom:0;">¿Sos concesionaria o tenés flota?</h2>
+        <p class="b2b-copy">Certificamos varios vehículos con tarifas preferenciales para concesionarias, agencias y flotas. Escríbenos y armamos una propuesta a tu medida.</p>
+        <a href="#" data-wa-b2b class="btn-primary" style="align-self:flex-start;">Cotizar por volumen →</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FAQ ───────────────────────────────────────────────── -->
   <section id="faq" aria-labelledby="faq-hd">
     <div class="container">
       <div data-reveal>
@@ -610,6 +1183,24 @@
           <div class="faq-q">¿Dónde hacen la inspección?<span class="faq-icon" aria-hidden="true">+</span></div>
           <div class="faq-a-wrap"><div class="faq-a">Donde esté el vehículo, dentro del área metropolitana de Guatemala. Consulta cobertura para otros departamentos.</div></div>
         </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            ¿Puedo cambiar la fecha de mi inspección?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq-a">Sí. Coordinamos cualquier cambio de fecha u hora directamente por WhatsApp. Aún no tenemos una política formal de reembolsos — escríbenos y lo resolvemos caso por caso.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            ¿Qué pasa si el reporte dice que no debo comprar el vehículo?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq-a">El reporte es tuyo y es independiente. Si el veredicto es "negociar" o "rechazar", te explicamos los hallazgos para que tomes la decisión con información completa. CERTIMOTORS no tiene ningún interés en el resultado — trabajamos para ti, no para el vendedor.</div>
+        </div>
+
+
       </div>
     </div>
   </section>
@@ -637,6 +1228,8 @@
         <a href="#servicios">Servicios</a>
         <a href="#puntos">Qué inspeccionamos</a>
         <a href="#como">Cómo funciona</a>
+        <a href="#cobertura">Cobertura</a>
+        <a href="#b2b">Empresas</a>
         <a href="#faq">Preguntas frecuentes</a>
         <a href="#" data-wa>WhatsApp</a>
       </nav>
@@ -644,7 +1237,101 @@
     </div>
   </footer>
 
-  <!-- ── WHATSAPP FAB ────────────────────────────────────────── -->
+
+  <!-- ── CHECKOUT MODAL ──────────────────────────────────────── -->
+  <dialog id="checkout-modal" aria-labelledby="modal-title" aria-modal="true">
+    <button class="modal-close" aria-label="Cerrar" data-modal-close>✕</button>
+
+    <div class="modal-header">
+      <span id="modal-plan-badge" class="cm-badge"></span>
+      <h2 id="modal-title" class="modal-title">Solicitar inspección</h2>
+    </div>
+
+    <form id="checkout-form" novalidate>
+      <div class="form-section">
+        <p class="form-section-lbl">Tus datos</p>
+        <div class="form-row">
+          <label for="cf-nombre">Nombre completo <span class="req" aria-hidden="true">*</span></label>
+          <input id="cf-nombre" name="nombre" type="text" required autocomplete="name" placeholder="Juan García">
+        </div>
+        <div class="form-row">
+          <label for="cf-tel">WhatsApp / Teléfono <span class="req" aria-hidden="true">*</span></label>
+          <input id="cf-tel" name="telefono" type="tel" required autocomplete="tel" placeholder="41151444">
+        </div>
+        <div class="form-row">
+          <label for="cf-email">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="juan@correo.com">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <p class="form-section-lbl">El vehículo</p>
+        <div class="form-row">
+          <label for="cf-placa">Placa <span class="req" aria-hidden="true">*</span></label>
+          <input id="cf-placa" name="placa" type="text" required placeholder="Ej. P926FTB" maxlength="10" style="text-transform:uppercase;letter-spacing:.08em">
+          <p class="form-hint">La encuentras en la tarjeta de circulación</p>
+        </div>
+        <div class="form-row form-row-2">
+          <div>
+            <label for="cf-marca">Marca (opcional)</label>
+            <input id="cf-marca" name="marca" type="text" placeholder="Toyota">
+          </div>
+          <div>
+            <label for="cf-modelo">Modelo (opcional)</label>
+            <input id="cf-modelo" name="modelo" type="text" placeholder="Corolla">
+          </div>
+        </div>
+        <div class="form-row form-row-2">
+          <div>
+            <label for="cf-anio">Año (opcional)</label>
+            <input id="cf-anio" name="anio" type="number" placeholder="2018" min="1960" max="2030" inputmode="numeric">
+          </div>
+          <div>
+            <label for="cf-zona">Zona / Municipio <span class="req" aria-hidden="true">*</span></label>
+            <select id="cf-zona" name="zona" required>
+              <option value="">Selecciona</option>
+              <option value="Ciudad de Guatemala (zonas 1–19)">Ciudad de Guatemala (zonas 1–19)</option>
+              <option value="Mixco">Mixco</option>
+              <option value="Villa Nueva">Villa Nueva</option>
+              <option value="Chinautla">Chinautla</option>
+              <option value="San Miguel Petapa">San Miguel Petapa (+Q75)</option>
+              <option value="Santa Catarina Pinula">Santa Catarina Pinula (+Q75)</option>
+              <option value="Villa Canales">Villa Canales (+Q75)</option>
+              <option value="San José Pinula">San José Pinula (+Q75)</option>
+              <option value="Amatitlán">Amatitlán (+Q75)</option>
+              <option value="Fraijanes">Fraijanes (+Q75)</option>
+              <option value="Otro municipio / departamento">Otro municipio</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="cf-fecha">Fecha preferida <span class="form-hint-inline">(tentativa — la confirmamos)</span></label>
+          <input id="cf-fecha" name="fecha_preferida" type="date">
+        </div>
+      </div>
+
+      <div id="form-error" class="form-error" role="alert" hidden></div>
+
+      <button type="submit" class="btn-primary btn-full" id="submit-btn">Continuar al pago →</button>
+      <p class="form-legal">Al continuar aceptas que CERTIMOTORS procese tus datos para coordinar la inspección. ¿Dudas? <a href="#" data-wa class="form-legal-wa">WhatsApp →</a></p>
+    </form>
+  </dialog>
+
+  <!-- ── PANTALLA DE CONFIRMACIÓN ──────────────────────────────────────── -->
+  <section id="paid-screen" hidden aria-label="Confirmación de pago">
+    <div class="container">
+      <div class="paid-inner">
+        <div class="paid-check" aria-hidden="true">✓</div>
+        <h1 class="paid-h1">¡Pago recibido!</h1>
+        <p class="paid-p">Tu orden está registrada. Te contactaremos en las próximas horas por WhatsApp para confirmar la fecha y hora de la inspección.</p>
+        <p class="paid-p" style="margin-top:8px">Si tienes alguna duda, escríbenos directamente.</p>
+        <a href="#" data-wa class="btn-primary" style="margin-top:24px">Escribir por WhatsApp →</a>
+        <a href="/" class="paid-link">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHATSAPP FAB ───────────────────────────────────────── -->
   <a href="#" data-wa class="wa-fab" aria-label="Escribir por WhatsApp" target="_blank" rel="noopener noreferrer">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 21.95a.5.5 0 0 0 .612.612l4.782-1.387A9.953 9.953 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm-1.07 5.5c-.25-.006-.52.087-.74.31-.33.327-1.22 1.19-1.22 2.9s1.25 3.36 1.43 3.59c.17.23 2.41 3.82 5.93 5.21.74.3 1.31.47 1.76.59.74.2 1.41.17 1.94.1.59-.08 1.82-.75 2.08-1.47.26-.72.26-1.34.18-1.47-.08-.13-.29-.21-.6-.37-.32-.16-1.88-.93-2.17-1.04-.29-.1-.5-.16-.71.16-.21.32-.82 1.04-1.01 1.25-.18.21-.37.24-.69.08-.32-.16-1.36-.5-2.58-1.6-.96-.85-1.6-1.9-1.79-2.22-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.72-.97-2.35-.26-.63-.52-.53-.72-.54z" fill="var(--cm-canvas)"/>
@@ -654,13 +1341,23 @@
   <!-- ── JS ──────────────────────────────────────────────────── -->
   <script>
     'use strict';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const WA_URL = 'https://wa.me/502XXXXXXXX?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo.';
 
-    document.querySelectorAll('[data-wa]').forEach(el => {
-      el.href = WA_URL;
-      if (el.tagName === 'A' && !el.getAttribute('target')) { el.setAttribute('target', '_blank'); el.setAttribute('rel', 'noopener noreferrer'); }
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const WA_URL  = 'https://wa.me/50241151444?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo.';
+    const WA_PACK = 'https://wa.me/50241151444?text=Hola%20CERTIMOTORS%2C%20quiero%20informaci%C3%B3n%20del%20Pack%20de%202%20inspecciones%20con%2040%25%20de%20descuento%20en%20la%20segunda.';
+    const WA_B2B  = 'https://wa.me/50241151444?text=Hola%20CERTIMOTORS%2C%20represento%20una%20concesionaria%2Fflota%20y%20quiero%20cotizar%20certificaciones%20por%20volumen.';
+
+    const wireWA = (selector, url) => document.querySelectorAll(selector).forEach(el => {
+      el.href = url;
+      if (el.tagName === 'A' && !el.getAttribute('target')) {
+        el.setAttribute('target', '_blank');
+        el.setAttribute('rel', 'noopener noreferrer');
+      }
     });
+
+    wireWA('[data-wa]',      WA_URL);
+    wireWA('[data-wa-pack]', WA_PACK);
+    wireWA('[data-wa-b2b]',  WA_B2B);
 
     // ── Navbar: scrolled style + hide on scroll-down ──
     const nav = document.getElementById('nav');
@@ -752,6 +1449,163 @@
         if (!isOpen) { item.classList.add('open'); wrap.style.maxHeight = wrap.scrollHeight + 'px'; }
       });
     });
+
+    // Fade-in on scroll (IntersectionObserver)
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fi').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.fi').forEach(el => el.classList.add('visible'));
+    }
+
+    // ── CHECKOUT ──────────────────────────────────────────────
+
+    const API_BASE = 'https://certimotors.onrender.com';
+    const PLACA_RE = /^[A-Z]\d{3}[A-Z]{3}$/;
+    const PLAN_INFO = {
+      SCANNER:  { label: 'Scanner',  precio: 'Q 300' },
+      ESTANDAR: { label: 'Estándar', precio: 'Q 550' },
+      FULL:     { label: 'Full',     precio: 'Q 800' },
+    };
+
+    const modal         = document.getElementById('checkout-modal');
+    const modalBadge    = document.getElementById('modal-plan-badge');
+    const modalTitle    = document.getElementById('modal-title');
+    const checkoutForm  = document.getElementById('checkout-form');
+    const formError     = document.getElementById('form-error');
+    const submitBtn     = document.getElementById('submit-btn');
+    let planActual      = null;
+
+    // Abrir modal al hacer clic en un botón de plan
+    document.querySelectorAll('[data-checkout]').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        planActual = btn.dataset.checkout;
+        const info = PLAN_INFO[planActual] || {};
+        modalBadge.textContent = info.label || planActual;
+        modalTitle.textContent = `Solicitar ${info.label} · ${info.precio}`;
+        formError.hidden = true;
+        checkoutForm.reset();
+        // Fecha mínima: mañana
+        const mañana = new Date();
+        mañana.setDate(mañana.getDate() + 1);
+        document.getElementById('cf-fecha').min = mañana.toISOString().split('T')[0];
+        modal.showModal();
+      });
+    });
+
+    // Cerrar modal
+    document.querySelectorAll('[data-modal-close]').forEach(el => {
+      el.addEventListener('click', () => modal.close());
+    });
+    modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+
+    // Envío del formulario
+    checkoutForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      formError.hidden = true;
+
+      const placa = checkoutForm.placa.value.trim().toUpperCase();
+      const tel   = (checkoutForm.telefono.value || '').replace(/\D/g, '');
+
+      if (!checkoutForm.nombre.value.trim())      return mostrarError('El nombre es requerido.');
+      if (tel.length < 8)                          return mostrarError('Ingresa un teléfono válido (mínimo 8 dígitos).');
+      if (!checkoutForm.email.value.includes('@')) return mostrarError('Ingresa un correo electrónico válido.');
+      if (!placa)                                  return mostrarError('La placa es requerida para coordinar la inspección.');
+      if (!PLACA_RE.test(placa))                   return mostrarError('Formato de placa inválido. Ejemplo: P926FTB');
+      if (!checkoutForm.zona.value)                return mostrarError('Selecciona tu zona o municipio.');
+
+      setLoading(true);
+
+      try {
+        // Paso 1 — crear orden
+        const r1 = await fetch(`${API_BASE}/api/ordenes`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nombre:          checkoutForm.nombre.value.trim(),
+            telefono:        tel,
+            email:           checkoutForm.email.value.trim(),
+            placa,
+            marca:           checkoutForm.marca.value.trim() || null,
+            modelo:          checkoutForm.modelo.value.trim() || null,
+            anio:            checkoutForm.anio.value || null,
+            zona:            checkoutForm.zona.value,
+            fecha_preferida: checkoutForm.fecha_preferida.value || null,
+            servicio:        planActual,
+          }),
+        });
+        const j1 = await r1.json();
+        if (!r1.ok) throw new Error(j1.error || 'Error al registrar la orden.');
+
+        // Paso 2 — crear checkout en Recurrente
+        const r2 = await fetch(`${API_BASE}/api/pagos/crear-checkout`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orden_id: j1.orden_id }),
+        });
+        const j2 = await r2.json();
+        if (!r2.ok) throw new Error(j2.error || 'Error al crear el pago.');
+
+        // Guardar servicio para el evento de conversión al volver de Recurrente
+        sessionStorage.setItem('cm_servicio', planActual);
+
+        // Redirigir al checkout de Recurrente
+        window.location.href = j2.checkout_url;
+
+      } catch (err) {
+        mostrarError(err.message || 'Algo salió mal. Intenta de nuevo o contáctanos por WhatsApp.');
+        setLoading(false);
+      }
+    });
+
+    function mostrarError(msg) {
+      formError.textContent = msg;
+      formError.hidden = false;
+      formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function setLoading(on) {
+      submitBtn.disabled = on;
+      submitBtn.textContent = on ? 'Procesando…' : 'Continuar al pago →';
+    }
+
+    // ── PANTALLA DE CONFIRMACIÓN (post-pago) ──────────────────
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('paid') === '1') {
+      const paid = document.getElementById('paid-screen');
+      if (paid) {
+        paid.hidden = false;
+        paid.scrollIntoView({ behavior: 'smooth' });
+
+        // Evento de conversión GA4
+        const _servicio = sessionStorage.getItem('cm_servicio') || 'DESCONOCIDO';
+        const _valor    = { SCANNER: 300, ESTANDAR: 550, FULL: 800 }[_servicio] || 0;
+        gtag('event', 'checkout_completado', {
+          servicio:  _servicio,
+          orden_id:  params.get('orden') || undefined,
+          value:     _valor,
+          currency:  'GTQ',
+        });
+        sessionStorage.removeItem('cm_servicio');
+
+        // Reconectar el botón de WhatsApp dentro de la pantalla de confirmación
+        wireWA('#paid-screen [data-wa]', WA_URL);
+        // Ocultar hero y trust strip para que la confirmación ocupe el foco
+        ['hero', 'trust', 'servicios', 'como', 'pack'].forEach(id => {
+          const s = document.getElementById(id);
+          if (s) s.hidden = true;
+        });
+      }
+    }
   </script>
 </body>
 </html>
