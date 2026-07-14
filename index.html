@@ -53,17 +53,20 @@
   <link rel="stylesheet" href="tokens.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
   <style>
-    /* ── Extra tokens (opacity whites — no hardcoded brand colors below this line) */
+    /* ── Extra tokens ─────────────────────────────────────────── */
     :root {
       --white-68: rgba(255,255,255,0.68);
       --white-50: rgba(255,255,255,0.50);
       --white-30: rgba(255,255,255,0.30);
-      --white-10: rgba(255,255,255,0.10);
+      --white-12: rgba(255,255,255,0.12);
+      --white-08: rgba(255,255,255,0.08);
+      --nav-h: 64px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* ── Reset ──────────────────────────────────────────────── */
+    /* ── Reset ─────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -72,222 +75,193 @@
       color: var(--cm-ink);
       background: var(--cm-canvas);
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--cm-gold); color: #fff; }
 
-    /* ── Layout ─────────────────────────────────────────────── */
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ── Fade-in ─────────────────────────────────────────────── */
-    .fi {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-    .fi.visible { opacity: 1; transform: translateY(0); }
-    .fi-d1 { transition-delay: 0.08s; }
-    .fi-d2 { transition-delay: 0.16s; }
-    .fi-d3 { transition-delay: 0.24s; }
-
-    /* ── Logo HTML component ─────────────────────────────────── */
-    .logo-html {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
-    }
-    .logo-row {
-      display: flex;
-      align-items: center;
-      line-height: 1;
-    }
-    .lc {
-      font-family: var(--cm-font);
-      font-size: 22px;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-    }
-    .lm {
-      font-family: var(--cm-font);
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-    .ls {
-      width: 1.5px;
-      height: 19px;
-      background: var(--cm-gold);
-      margin: 0 7px;
-      flex-shrink: 0;
-    }
-    .lt {
-      font-family: var(--cm-font);
-      font-size: 7px;
-      font-weight: 400;
-      color: var(--cm-gold);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    /* Dark variant — white text, for navy backgrounds */
-    .logo-dark .lc  { color: var(--white-68); }
-    .logo-dark .lm  { color: var(--cm-canvas); }
-
-    /* Light variant — navy text, for white backgrounds */
-    .logo-light .lc { color: var(--cm-navy); }
-    .logo-light .lm { color: var(--cm-navy); }
+    /* ── Layout ────────────────────────────────────────────────── */
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
     /* ═══════════════════════════════════════════════════════════
-       NAVBAR
+       SCROLL REVEAL ENGINE (cinematic but elegant)
+    ═══════════════════════════════════════════════════════════ */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+      will-change: opacity, transform;
+    }
+    [data-reveal="left"]  { transform: translateX(-32px); }
+    [data-reveal="right"] { transform: translateX(32px); }
+    [data-reveal="scale"] { transform: scale(0.94); }
+    [data-reveal].in {
+      opacity: 1;
+      transform: translateY(0) translateX(0) scale(1);
+    }
+    /* Stagger children */
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    [data-stagger].in > * { opacity: 1; transform: translateY(0); }
+
+    /* ── Scroll progress bar ───────────────────────────────────── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--cm-gold-soft), var(--cm-gold));
+      z-index: 1100; transition: width 0.1s linear;
+    }
+
+    /* ── Logo ──────────────────────────────────────────────────── */
+    .logo-html { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+    .logo-row  { display: flex; align-items: center; line-height: 1; }
+    .lc { font-family: var(--cm-font); font-size: 22px; font-weight: 400; letter-spacing: -0.01em; }
+    .lm { font-family: var(--cm-font); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+    .ls { width: 1.5px; height: 19px; background: var(--cm-gold); margin: 0 7px; flex-shrink: 0; }
+    .lt { font-family: var(--cm-font); font-size: 7px; font-weight: 400; color: var(--cm-gold); letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; }
+    .logo-dark .lc { color: var(--white-68); } .logo-dark .lm { color: var(--cm-canvas); }
+    .logo-light .lc { color: var(--cm-navy); } .logo-light .lm { color: var(--cm-navy); }
+
+    /* ═══════════════════════════════════════════════════════════
+       NAVBAR — hides on scroll-down, reveals on scroll-up (Apple)
     ═══════════════════════════════════════════════════════════ */
     #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 900;
-      background: var(--cm-navy);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      background: transparent;
       border-bottom: 1px solid transparent;
-      transition: background 0.22s ease, border-color 0.22s ease;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.4s var(--ease-out);
     }
+    #nav.hidden { transform: translateY(-100%); }
     #nav.scrolled {
-      background: var(--cm-canvas);
+      background: rgba(255,255,255,0.82);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      backdrop-filter: saturate(180%) blur(14px);
       border-bottom-color: var(--cm-hairline);
     }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a.nl {
+      font-size: 14px; color: var(--white-68); transition: color 0.2s ease; position: relative;
     }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    .nav-links a.nl::after {
+      content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 1.5px;
+      background: var(--cm-gold); transition: width 0.25s var(--ease-out);
     }
-    .nav-link {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--white-68);
-      transition: color 0.15s ease;
-      white-space: nowrap;
-    }
-    .nav-link:hover { color: var(--cm-gold); }
-    #nav.scrolled .nav-link { color: var(--cm-ink-mute); }
-    #nav.scrolled .nav-link:hover { color: var(--cm-navy); }
-
-    /* Logo swap on scroll */
-    .nav-logo-dark  { display: inline-flex; }
-    .nav-logo-light { display: none; }
-    #nav.scrolled .nav-logo-dark  { display: none; }
-    #nav.scrolled .nav-logo-light { display: block; }
-
+    .nav-links a.nl:hover { color: #fff; } .nav-links a.nl:hover::after { width: 100%; }
+    #nav.scrolled .nav-links a.nl { color: var(--cm-ink-secondary); }
+    #nav.scrolled .nav-links a.nl:hover { color: var(--cm-navy); }
+    .nav-logo-dark { display: inline-flex; } .nav-logo-light { display: none; }
+    #nav.scrolled .nav-logo-dark { display: none; } #nav.scrolled .nav-logo-light { display: block; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
     .btn-nav {
-      display: inline-flex;
-      align-items: center;
-      padding: 9px 18px;
-      background: var(--cm-gold);
-      color: var(--cm-canvas);
-      font-family: var(--cm-font);
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: var(--cm-radius-pill);
-      transition: background 0.15s ease;
-      white-space: nowrap;
+      display: inline-flex; align-items: center; padding: 9px 18px;
+      background: var(--cm-gold); color: var(--cm-canvas);
+      font-size: 14px; font-weight: 500; border-radius: var(--cm-radius-pill);
+      transition: background 0.15s ease, transform 0.15s ease; white-space: nowrap;
     }
-    .btn-nav:hover  { background: var(--cm-gold-deep); }
-    .btn-nav:active { background: var(--cm-gold-press); }
+    .btn-nav:hover  { background: var(--cm-gold-deep); transform: translateY(-1px); }
+    .btn-nav:active { background: var(--cm-gold-press); transform: none; }
+    @media (max-width: 860px) { .nav-links { display: none; } }
 
     /* ═══════════════════════════════════════════════════════════
-       HERO
+       HERO — cinematic navy with animated aurora + parallax
     ═══════════════════════════════════════════════════════════ */
     #hero {
-      background: var(--cm-navy);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 104px 0 80px;
+      position: relative; background: var(--cm-navy); min-height: 100vh;
+      display: flex; align-items: center; padding: 120px 0 90px; overflow: hidden;
     }
-    .hero-inner {
-      max-width: 720px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 24px;
+    /* Aurora glow blobs */
+    .hero-aura {
+      position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.5;
+      pointer-events: none; will-change: transform;
     }
+    .aura-gold { width: 520px; height: 520px; top: -140px; right: -120px;
+      background: radial-gradient(circle, rgba(200,151,58,0.55), transparent 65%); animation: drift1 16s ease-in-out infinite; }
+    .aura-blue { width: 600px; height: 600px; bottom: -220px; left: -160px;
+      background: radial-gradient(circle, rgba(60,80,200,0.4), transparent 65%); animation: drift2 20s ease-in-out infinite; }
+    @keyframes drift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,30px)} }
+    @keyframes drift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(50px,-30px)} }
+    /* Subtle grid texture */
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.4;
+      background-image: linear-gradient(var(--white-08) 1px, transparent 1px),
+                        linear-gradient(90deg, var(--white-08) 1px, transparent 1px);
+      background-size: 60px 60px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 75%);
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 75%);
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 760px; display: flex; flex-direction: column; align-items: flex-start; gap: 26px; }
+
+    /* Entrance animation (on load) */
+    .hero-anim { opacity: 0; transform: translateY(24px); animation: heroIn 0.9s var(--ease-out) forwards; }
+    .ha-1 { animation-delay: 0.05s; } .ha-2 { animation-delay: 0.18s; }
+    .ha-3 { animation-delay: 0.31s; } .ha-4 { animation-delay: 0.44s; } .ha-5 { animation-delay: 0.57s; }
+    @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 10px;
+      background: var(--white-08); border: 1px solid var(--white-12);
+      border-radius: var(--cm-radius-pill); font-size: 12.5px; color: var(--white-68);
+      letter-spacing: 0.02em;
+    }
+    .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #3ddc84; box-shadow: 0 0 0 0 rgba(61,220,132,0.6); animation: pulse 2.2s infinite; }
+    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(61,220,132,0.55)} 70%{box-shadow:0 0 0 8px rgba(61,220,132,0)} 100%{box-shadow:0 0 0 0 rgba(61,220,132,0)} }
+
     .hero-h1 {
-      font-size: 48px;
-      font-weight: 300;
-      color: var(--cm-canvas);
-      letter-spacing: -0.025em;
-      line-height: 1.1;
+      font-size: clamp(34px, 5.4vw, 60px); font-weight: 300; color: var(--cm-canvas);
+      letter-spacing: -0.03em; line-height: 1.06;
     }
-    .hero-sub {
-      font-size: 16px;
-      color: var(--white-68);
-      line-height: 1.65;
-      margin-top: -8px;
+    .hero-h1 .accent {
+      background: linear-gradient(120deg, var(--cm-gold-soft), var(--cm-gold));
+      -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 400;
     }
-    .hero-micro {
-      font-size: 13px;
-      color: var(--cm-ink-mute);
-      margin-top: -8px;
-    }
+    .hero-sub { font-size: clamp(15px, 2vw, 18px); color: var(--white-68); line-height: 1.6; max-width: 540px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      padding: 14px 28px;
-      background: var(--cm-gold);
-      color: var(--cm-canvas);
-      font-family: var(--cm-font);
-      font-size: 16px;
-      font-weight: 500;
+      display: inline-flex; align-items: center; gap: 8px; padding: 15px 30px;
+      background: var(--cm-gold); color: var(--cm-canvas); font-size: 16px; font-weight: 500;
       border-radius: var(--cm-radius-pill);
-      transition: background 0.15s ease;
+      transition: background 0.15s ease, transform 0.18s var(--ease-out), box-shadow 0.18s ease;
+      box-shadow: 0 6px 20px rgba(200,151,58,0.28);
     }
-    .btn-primary:hover  { background: var(--cm-gold-deep); }
-    .btn-primary:active { background: var(--cm-gold-press); }
+    .btn-primary:hover { background: var(--cm-gold-deep); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200,151,58,0.36); }
+    .btn-primary:active { transform: none; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 7px; padding: 15px 24px;
+      color: #fff; font-size: 15px; font-weight: 500; border-radius: var(--cm-radius-pill);
+      border: 1px solid var(--white-12); transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: var(--white-08); border-color: var(--white-30); }
+    .hero-micro { font-size: 13px; color: var(--white-50); }
+    .hero-micro b { color: var(--white-68); font-weight: 500; }
+
+    /* Scroll-down cue */
+    .scroll-cue {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--white-50); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      animation: heroIn 0.9s 0.7s var(--ease-out) backwards;
+    }
+    .scroll-mouse { width: 22px; height: 34px; border: 1.5px solid var(--white-30); border-radius: 12px; position: relative; }
+    .scroll-mouse::before { content:''; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:3px; height:6px; border-radius:2px; background: var(--cm-gold); animation: wheel 1.6s infinite; }
+    @keyframes wheel { 0%{opacity:0; transform:translate(-50%,0)} 30%{opacity:1} 100%{opacity:0; transform:translate(-50%,10px)} }
 
     /* ═══════════════════════════════════════════════════════════
-       TRUST STRIP
+       TRUST STRIP — count-up numbers
     ═══════════════════════════════════════════════════════════ */
-    #trust {
-      background: var(--cm-canvas-soft);
-      border-top: 1px solid var(--cm-hairline);
-      border-bottom: 1px solid var(--cm-hairline);
-      padding: 0;
-    }
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .trust-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 6px;
-      padding: 36px 24px;
-    }
-    .trust-item + .trust-item {
-      border-left: 1px solid var(--cm-hairline);
-    }
-    .trust-val {
-      font-size: 30px;
-      font-weight: 300;
-      color: var(--cm-gold);
-      letter-spacing: -0.02em;
-      line-height: 1;
-    }
-    .trust-lbl {
-      font-size: 13px;
-      color: var(--cm-ink-mute);
-      line-height: 1.4;
-    }
+    #trust { background: var(--cm-canvas-soft); border-top: 1px solid var(--cm-hairline); border-bottom: 1px solid var(--cm-hairline); }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .trust-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 40px 24px; transition: transform 0.5s var(--ease-out), opacity 0.5s var(--ease-out); }
+    .trust-item + .trust-item { border-left: 1px solid var(--cm-hairline); }
+    .trust-val { font-size: 36px; font-weight: 300; color: var(--cm-gold); letter-spacing: -0.02em; line-height: 1; font-feature-settings: var(--cm-tnum); }
+    .trust-lbl { font-size: 13px; color: var(--cm-ink-mute); line-height: 1.4; }
+
+    /* ── Section heads ─────────────────────────────────────────── */
+    .section-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cm-gold); margin-bottom: 14px; }
+    .section-hd { font-size: clamp(26px, 3.6vw, 40px); font-weight: 300; color: var(--cm-navy); letter-spacing: -0.025em; line-height: 1.12; }
+    .section-lead { font-size: 16px; color: var(--cm-ink-mute); line-height: 1.6; max-width: 560px; margin-top: 14px; }
 
     /* ═══════════════════════════════════════════════════════════
        SERVICIOS
@@ -352,65 +326,16 @@
       margin-top: 4px;
     }
     .card-hr-light { height: 1px; background: var(--cm-hairline); }
-    .card-hr-dark  { height: 1px; background: var(--white-10); }
-    .card-note     { font-size: 13px; }
-
-    .feat-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-      flex: 1;
-    }
-    .feat-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
-      font-size: 14px;
-      line-height: 1.55;
-    }
-    .feat-check {
-      color: var(--cm-gold);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .btn-outline {
-      display: block;
-      padding: 13px;
-      background: transparent;
-      color: var(--cm-gold);
-      font-family: var(--cm-font);
-      font-size: 15px;
-      font-weight: 500;
-      border: 1px solid var(--cm-gold);
-      border-radius: var(--cm-radius-pill);
-      text-align: center;
-      transition: background 0.15s ease;
-    }
+    .card-hr-dark  { height: 1px; background: var(--white-12); }
+    .card-note { font-size: 13px; }
+    .feat-list { list-style: none; display: flex; flex-direction: column; gap: 12px; flex: 1; position: relative; z-index: 1; }
+    .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.55; }
+    .feat-check { color: var(--cm-gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .btn-outline { display: block; padding: 14px; background: transparent; color: var(--cm-gold); font-size: 15px; font-weight: 500; border: 1px solid var(--cm-gold); border-radius: var(--cm-radius-pill); text-align: center; transition: background 0.15s ease; }
     .btn-outline:hover { background: var(--cm-gold-bg); }
-
-    .btn-gold-block {
-      display: block;
-      padding: 13px;
-      background: var(--cm-gold);
-      color: var(--cm-canvas);
-      font-family: var(--cm-font);
-      font-size: 15px;
-      font-weight: 500;
-      border-radius: var(--cm-radius-pill);
-      text-align: center;
-      transition: background 0.15s ease;
-    }
+    .btn-gold-block { display: block; padding: 14px; background: var(--cm-gold); color: var(--cm-canvas); font-size: 15px; font-weight: 500; border-radius: var(--cm-radius-pill); text-align: center; transition: background 0.15s ease; position: relative; z-index: 1; }
     .btn-gold-block:hover { background: var(--cm-gold-deep); }
-
-    /* Badge inside card-full */
-    .card-badge-abs {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
+    .card-badge-abs { position: absolute; top: 22px; right: 22px; z-index: 2; }
 
     /* ═══════════════════════════════════════════════════════════
        PACK BANNER
@@ -443,46 +368,62 @@
     }
 
     /* ═══════════════════════════════════════════════════════════
-       CÓMO FUNCIONA
+       QUÉ INSPECCIONAMOS — 110 puntos
     ═══════════════════════════════════════════════════════════ */
-    #como {
-      background: var(--cm-canvas-soft);
-      padding: 96px 0;
+    #puntos { background: var(--cm-navy); padding: 110px 0; position: relative; overflow: hidden; }
+    #puntos .aura-gold { width: 460px; height: 460px; top: -160px; left: -120px; opacity: 0.35; }
+    .puntos-head { position: relative; z-index: 2; max-width: 620px; }
+    .puntos-head .section-hd, .puntos-head .section-eyebrow { color: #fff; }
+    .puntos-head .section-eyebrow { color: var(--cm-gold); }
+    .puntos-head .section-lead { color: var(--white-68); }
+    .insp-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 50px; }
+    .insp-card {
+      background: var(--white-08); border: 1px solid var(--white-12); border-radius: 14px;
+      padding: 26px 24px; display: flex; flex-direction: column; gap: 12px;
+      transition: background 0.3s ease, transform 0.3s var(--ease-out), border-color 0.3s ease;
     }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
+    .insp-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); border-color: var(--white-30); }
+    .insp-ic { width: 42px; height: 42px; border-radius: 11px; background: linear-gradient(135deg, var(--cm-gold), var(--cm-gold-deep)); display: flex; align-items: center; justify-content: center; }
+    .insp-ic svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 1.7; }
+    .insp-t { font-size: 16px; font-weight: 500; color: #fff; }
+    .insp-d { font-size: 13.5px; color: var(--white-68); line-height: 1.55; }
+    .insp-n { font-size: 12px; color: var(--cm-gold); font-weight: 600; letter-spacing: 0.03em; }
+
+    /* ═══════════════════════════════════════════════════════════
+       CÓMO FUNCIONA — sticky progress line
+    ═══════════════════════════════════════════════════════════ */
+    #como { background: var(--cm-canvas-soft); padding: 110px 0; }
+    .steps-wrap { position: relative; margin-top: 56px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; }
+    /* progress rail */
+    .steps-rail { position: absolute; top: 30px; left: 8%; right: 8%; height: 2px; background: var(--cm-hairline); z-index: 0; }
+    .steps-rail-fill { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: linear-gradient(90deg, var(--cm-gold-soft), var(--cm-gold)); transition: width 0.6s var(--ease-out); }
+    .step { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+    .step-dot {
+      width: 60px; height: 60px; border-radius: 50%; background: var(--cm-canvas);
+      border: 2px solid var(--cm-hairline); display: flex; align-items: center; justify-content: center;
+      font-size: 24px; font-weight: 300; color: var(--cm-ink-mute); transition: all 0.4s var(--ease-out);
+      font-feature-settings: var(--cm-tnum);
     }
-    .step {
-      padding: 0 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      position: relative;
-    }
-    .step:first-child { padding-left: 0; }
-    .step:last-child  { padding-right: 0; }
-    .step + .step::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 24px; bottom: 24px;
-      width: 1px;
-      background: var(--cm-hairline);
-      border-left: 1px dashed var(--cm-hairline);
-    }
-    .step-n {
-      font-size: 48px;
-      font-weight: 300;
-      color: var(--cm-gold);
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-    .step-t {
-      font-size: 15px;
-      color: var(--cm-ink);
-      line-height: 1.65;
-    }
+    .step.active .step-dot { border-color: var(--cm-gold); color: var(--cm-gold); box-shadow: 0 8px 22px rgba(200,151,58,0.25); transform: scale(1.05); }
+    .step-h { font-size: 17px; font-weight: 500; color: var(--cm-navy); }
+    .step-t { font-size: 14.5px; color: var(--cm-ink-mute); line-height: 1.6; }
+
+    /* ═══════════════════════════════════════════════════════════
+       POR QUÉ INDEPENDIENTE — comparison
+    ═══════════════════════════════════════════════════════════ */
+    #porque { background: var(--cm-canvas); padding: 110px 0; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 880px; margin-top: 50px; }
+    .comp-col { border-radius: 16px; padding: 32px; }
+    .comp-them { background: var(--cm-canvas-soft); border: 1px solid var(--cm-hairline); }
+    .comp-us { background: var(--cm-navy); color: #fff; box-shadow: 0 18px 50px rgba(28,30,84,0.22); }
+    .comp-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .comp-sub { font-size: 13px; margin-bottom: 22px; }
+    .comp-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .comp-list li { display: flex; gap: 11px; font-size: 14.5px; line-height: 1.5; align-items: flex-start; }
+    .ic-x, .ic-ok { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-top: 1px; }
+    .ic-x { background: rgba(190,60,60,0.12); color: #c0504d; }
+    .ic-ok { background: var(--cm-gold); color: #fff; }
 
     /* ═══════════════════════════════════════════════════════════
        MUESTRA
@@ -656,155 +597,55 @@
     /* ═══════════════════════════════════════════════════════════
        FAQ
     ═══════════════════════════════════════════════════════════ */
-    #faq {
-      background: var(--cm-canvas);
-      padding: 96px 0;
-    }
-    .faq-list {
-      max-width: 720px;
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--cm-hairline);
-    }
-    .faq-q {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 20px 0;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--cm-ink);
-      user-select: none;
-    }
-    .faq-icon {
-      color: var(--cm-gold);
-      font-size: 22px;
-      font-weight: 300;
-      line-height: 1;
-      flex-shrink: 0;
-      transition: transform 0.2s ease;
-    }
+    #faq { background: var(--cm-canvas-soft); padding: 110px 0; }
+    .faq-list { max-width: 760px; margin-top: 44px; }
+    .faq-item { border: 1px solid var(--cm-hairline); border-radius: 12px; margin-bottom: 12px; background: var(--cm-canvas); overflow: hidden; transition: border-color 0.25s ease, box-shadow 0.25s ease; }
+    .faq-item.open { border-color: var(--cm-gold); box-shadow: var(--cm-shadow-card); }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; cursor: pointer; font-size: 15.5px; font-weight: 500; color: var(--cm-ink); user-select: none; }
+    .faq-icon { color: var(--cm-gold); font-size: 24px; font-weight: 300; line-height: 1; flex-shrink: 0; transition: transform 0.25s var(--ease-out); }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-a {
-      display: none;
-      font-size: 14px;
-      color: var(--cm-ink-mute);
-      padding-bottom: 20px;
-      line-height: 1.65;
-      max-width: 620px;
-    }
-    .faq-item.open .faq-a { display: block; }
+    .faq-a-wrap { max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease-out); }
+    .faq-a { font-size: 14.5px; color: var(--cm-ink-mute); padding: 0 24px 20px; line-height: 1.65; }
 
     /* ═══════════════════════════════════════════════════════════
        CTA FINAL
     ═══════════════════════════════════════════════════════════ */
-    #cta-final {
-      background: var(--cm-navy);
-      padding: 96px 24px;
-      text-align: center;
-    }
-    .cta-h2 {
-      font-size: 40px;
-      font-weight: 300;
-      color: var(--cm-canvas);
-      letter-spacing: -0.025em;
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-    .cta-sub {
-      font-size: 16px;
-      color: var(--white-68);
-      margin-bottom: 36px;
-    }
-    .btn-cta-lg {
-      display: inline-flex;
-      align-items: center;
-      padding: 16px 32px;
-      background: var(--cm-gold);
-      color: var(--cm-canvas);
-      font-family: var(--cm-font);
-      font-size: 18px;
-      font-weight: 500;
-      border-radius: var(--cm-radius-pill);
-      transition: background 0.15s ease;
-    }
-    .btn-cta-lg:hover { background: var(--cm-gold-deep); }
+    #cta-final { background: var(--cm-navy); padding: 120px 24px; text-align: center; position: relative; overflow: hidden; }
+    #cta-final .aura-gold { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.3; animation: none; }
+    .cta-inner { position: relative; z-index: 2; }
+    .cta-h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 300; color: var(--cm-canvas); letter-spacing: -0.025em; line-height: 1.12; margin-bottom: 16px; }
+    .cta-sub { font-size: 17px; color: var(--white-68); margin-bottom: 36px; }
+    .btn-cta-lg { display: inline-flex; align-items: center; gap: 9px; padding: 17px 34px; background: var(--cm-gold); color: var(--cm-canvas); font-size: 18px; font-weight: 500; border-radius: var(--cm-radius-pill); transition: background 0.15s ease, transform 0.18s var(--ease-out); box-shadow: 0 10px 30px rgba(200,151,58,0.35); }
+    .btn-cta-lg:hover { background: var(--cm-gold-deep); transform: translateY(-2px); }
 
-    /* ═══════════════════════════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════════════════════════ */
-    #footer {
-      background: var(--cm-navy);
-      border-top: 1px solid var(--white-10);
-      padding: 48px 0 32px;
-    }
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      text-align: center;
-    }
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .footer-links a {
-      font-size: 13px;
-      color: var(--white-50);
-      transition: color 0.12s ease;
-    }
+    /* ── Footer ────────────────────────────────────────────────── */
+    #footer { background: var(--cm-navy); border-top: 1px solid var(--white-12); padding: 52px 0 34px; }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
+    .footer-links { display: flex; gap: 26px; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 13px; color: var(--white-50); transition: color 0.15s ease; }
     .footer-links a:hover { color: var(--cm-gold); }
-    .footer-copy {
-      font-size: 12px;
-      color: var(--white-30);
-    }
+    .footer-copy { font-size: 12px; color: var(--white-30); }
+
+    /* ── WhatsApp FAB ──────────────────────────────────────────── */
+    .wa-fab { position: fixed; bottom: 24px; right: 24px; width: 58px; height: 58px; background: var(--cm-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--cm-shadow-float); z-index: 1000; transition: transform 0.18s var(--ease-out), background 0.15s ease; }
+    .wa-fab:hover { transform: scale(1.1); background: var(--cm-gold-deep); }
+    .wa-fab::after { content:''; position:absolute; inset:0; border-radius:50%; border:2px solid var(--cm-gold); animation: ripple 2.4s infinite; }
+    @keyframes ripple { 0%{opacity:0.6; transform:scale(1)} 100%{opacity:0; transform:scale(1.6)} }
 
     /* ═══════════════════════════════════════════════════════════
-       WHATSAPP FAB
-    ═══════════════════════════════════════════════════════════ */
-    .wa-fab {
-      position: fixed;
-      bottom: 24px; right: 24px;
-      width: 56px; height: 56px;
-      background: var(--cm-gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--cm-shadow-float);
-      z-index: 1000;
-      transition: transform 0.15s ease, background 0.15s ease;
-    }
-    .wa-fab:hover {
-      transform: scale(1.08);
-      background: var(--cm-gold-deep);
-    }
-
-    /* ═══════════════════════════════════════════════════════════
-       RESPONSIVE — mobile first, single breakpoint 768px
+       RESPONSIVE
     ═══════════════════════════════════════════════════════════ */
     @media (max-width: 768px) {
-      /* Hero */
-      .hero-h1 { font-size: 32px; }
-      #hero { padding: 96px 0 64px; }
-
-      /* Trust strip: 4 → 2×2 */
+      #hero { padding: 100px 0 80px; }
       .trust-grid { grid-template-columns: repeat(2, 1fr); }
       .trust-item + .trust-item { border-left: none; }
-      .trust-item:nth-child(1) {
-        border-right: 1px solid var(--cm-hairline);
-        border-bottom: 1px solid var(--cm-hairline);
-      }
+      .trust-item:nth-child(1) { border-right: 1px solid var(--cm-hairline); border-bottom: 1px solid var(--cm-hairline); }
       .trust-item:nth-child(2) { border-bottom: 1px solid var(--cm-hairline); }
       .trust-item:nth-child(3) { border-right: 1px solid var(--cm-hairline); }
 
       /* Cards: 3-col → stack */
-      .cards-grid { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .insp-grid { grid-template-columns: 1fr; }
 
       /* Steps: row → column */
       .steps {
@@ -813,6 +654,9 @@
       }
       .step { padding: 0; }
       .step + .step::before { display: none; }
+      .steps-rail { display: none; }
+
+      .compare { grid-template-columns: 1fr; }
 
       /* Muestra grid → stack */
       .muestra-grid { grid-template-columns: 1fr; max-width: 100%; }
@@ -821,7 +665,7 @@
       .pack-inner { flex-direction: column; align-items: flex-start; }
 
       /* Sections */
-      #servicios, #como, #faq, #muestra, #testimonio, #cobertura, #b2b { padding: 64px 0; }
+      #servicios, #como, #faq, #muestra, #testimonio, #cobertura, #b2b, #puntos, #porque { padding: 64px 0; }
       #cta-final { padding: 64px 24px; }
       .section-hd { font-size: 28px; margin-bottom: 36px; }
       .section-sub { margin-top: -24px; margin-bottom: 36px; }
@@ -831,13 +675,14 @@
       /* Navbar */
       .btn-nav { font-size: 13px; padding: 8px 14px; }
       .nav-link { display: none; }
+      .scroll-cue { display: none; }
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
-      .fi { opacity: 1; transform: none; transition: none; }
-      * { transition-duration: 0.01ms !important; }
+      [data-reveal], [data-stagger] > *, .hero-anim, .scroll-cue { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
+      .hero-aura, .aura-gold, .aura-blue, .scroll-mouse::before, .hero-badge .dot, .wa-fab::after { animation: none !important; }
       html { scroll-behavior: auto; }
+      * { transition-duration: 0.01ms !important; }
     }
 
     /* ── CHECKOUT MODAL ─────────────────────────────────────── */
@@ -984,78 +829,69 @@
 </head>
 <body>
 
-  <!-- ── NAVBAR ────────────────────────────────────────────── -->
+  <div id="progress" aria-hidden="true"></div>
+
+  <!-- ── NAVBAR ──────────────────────────────────────────────── -->
   <nav id="nav" role="navigation" aria-label="Navegación principal">
     <div class="container nav-inner">
-
-      <!-- Dark logo: visible on initial navy navbar -->
       <a href="/" class="logo-html logo-dark nav-logo-dark" aria-label="CERTIMOTORS — inicio">
-        <div class="logo-row">
-          <span class="lc">CERTI</span>
-          <div class="ls" aria-hidden="true"></div>
-          <span class="lm">MOTORS</span>
-        </div>
+        <div class="logo-row"><span class="lc">CERTI</span><div class="ls" aria-hidden="true"></div><span class="lm">MOTORS</span></div>
         <span class="lt">Inspección certificada · Guatemala</span>
       </a>
-
       <!-- Light logo (img svg): visible on scrolled white navbar -->
       <a href="/" class="nav-logo-light" aria-label="CERTIMOTORS — inicio">
         <img src="logo.svg" alt="CERTIMOTORS" height="32">
       </a>
 
-      <div class="nav-actions">
-        <a href="#b2b" class="nav-link">Empresas</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#servicios" class="nl">Servicios</a>
+          <a href="#puntos" class="nl">Qué inspeccionamos</a>
+          <a href="#como" class="nl">Cómo funciona</a>
+          <a href="#faq" class="nl">Preguntas</a>
+        </div>
         <a href="#" data-wa class="btn-nav">Solicitar inspección →</a>
       </div>
     </div>
   </nav>
 
-
-  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <!-- ── HERO ────────────────────────────────────────────────── -->
   <section id="hero" aria-labelledby="hero-h1">
+    <div class="hero-aura aura-gold" data-parallax="0.18"></div>
+    <div class="hero-aura aura-blue" data-parallax="0.10"></div>
+    <div class="hero-grid"></div>
     <div class="container">
       <div class="hero-inner">
-        <span class="cm-badge">Inspección independiente · Guatemala</span>
-        <h1 id="hero-h1" class="hero-h1">
-          La opinión técnica y legal independiente que necesitas antes de comprar tu próximo vehículo en Guatemala.
+        <span class="hero-badge hero-anim ha-1"><span class="dot"></span> Inspección 100% independiente · Guatemala</span>
+        <h1 id="hero-h1" class="hero-h1 hero-anim ha-2">
+          Compra tu próximo carro<br>con la <span class="accent">certeza</span> de un experto a tu lado.
         </h1>
-        <p class="hero-sub">
-          Inspección de 110 puntos + verificación legal.<br>
-          Reporte con veredicto ejecutivo en 24–48h.
+        <p class="hero-sub hero-anim ha-3">
+          Inspección técnica de 110 puntos + verificación legal completa, antes de que pongas un solo quetzal. Reporte con veredicto ejecutivo en 24–48h.
         </p>
         <a href="#" data-wa class="btn-primary">Solicitar por WhatsApp →</a>
         <p class="hero-micro">Desde Q300 · Válido 90 días · QR de autenticidad</p>
       </div>
     </div>
+    <a href="#trust" class="scroll-cue" aria-hidden="true">
+      <span class="scroll-mouse"></span>
+      Desliza
+    </a>
   </section>
 
-
-  <!-- ── TRUST STRIP ───────────────────────────────────────── -->
+  <!-- ── TRUST STRIP ─────────────────────────────────────────── -->
   <section id="trust" aria-label="Datos clave">
     <div class="container">
-      <div class="trust-grid fi">
-        <div class="trust-item">
-          <span class="trust-val">110</span>
-          <span class="trust-lbl">puntos de inspección</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-val">✓</span>
-          <span class="trust-lbl">100% independiente</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-val">24h</span>
-          <span class="trust-lbl">entrega del reporte</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-val">QR</span>
-          <span class="trust-lbl">verificable en línea</span>
-        </div>
+      <div class="trust-grid" data-reveal>
+        <div class="trust-item"><span class="trust-val" data-count="110">0</span><span class="trust-lbl">puntos de inspección</span></div>
+        <div class="trust-item"><span class="trust-val" data-count="100" data-suffix="%">0</span><span class="trust-lbl">independiente del vendedor</span></div>
+        <div class="trust-item"><span class="trust-val" data-count="24" data-suffix="h">0</span><span class="trust-lbl">entrega del reporte</span></div>
+        <div class="trust-item"><span class="trust-val" data-count="90" data-suffix=" días">0</span><span class="trust-lbl">de validez verificable</span></div>
       </div>
     </div>
   </section>
 
-
-  <!-- ── SERVICIOS ─────────────────────────────────────────── -->
+  <!-- ── SERVICIOS ───────────────────────────────────────────── -->
   <section id="servicios" aria-labelledby="servicios-hd">
     <div class="container">
       <h2 id="servicios-hd" class="section-hd fi">Elige tu nivel de certeza</h2>
@@ -1094,7 +930,6 @@
           </ul>
           <a href="#" data-checkout="ESTANDAR" class="btn-outline">Solicitar Estándar</a>
         </div>
-
         <!-- Full -->
         <div class="card card-full">
           <span class="cm-badge card-badge-abs">Recomendado</span>
@@ -1114,33 +949,111 @@
           </ul>
           <a href="#" data-checkout="FULL" class="btn-gold-block">Solicitar Full</a>
         </div>
-
       </div>
     </div>
   </section>
 
+  <!-- ── QUÉ INSPECCIONAMOS ──────────────────────────────────── -->
+  <section id="puntos" aria-labelledby="puntos-hd">
+    <div class="hero-aura aura-gold" data-parallax="0.12"></div>
+    <div class="container">
+      <div class="puntos-head" data-reveal>
+        <p class="section-eyebrow">110 puntos de control</p>
+        <h2 id="puntos-hd" class="section-hd">Revisamos lo que no se ve a simple vista</h2>
+        <p class="section-lead">Un vistazo rápido no detecta un motor intervenido, un chasis enderezado o un título con problemas. Nosotros sí.</p>
+      </div>
+      <div class="insp-grid" data-stagger>
+        <div class="insp-card">
+          <div class="insp-ic"><svg viewBox="0 0 24 24"><path d="M3 13l2-5a2 2 0 012-1.3h10A2 2 0 0119 8l2 5M5 17h14M6 17v2M18 17v2"/><circle cx="7.5" cy="13.5" r="1.5"/><circle cx="16.5" cy="13.5" r="1.5"/></svg></div>
+          <div class="insp-n">01 — 24</div>
+          <div class="insp-t">Motor y mecánica</div>
+          <div class="insp-d">Compresión, fugas, transmisión, suspensión, frenos y ruidos anómalos.</div>
+        </div>
+        <div class="insp-card">
+          <div class="insp-ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="insp-n">25 — 48</div>
+          <div class="insp-t">Estructura y chasis</div>
+          <div class="insp-d">Detección de colisiones, soldaduras, enderezadas y daño estructural oculto.</div>
+        </div>
+        <div class="insp-card">
+          <div class="insp-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M7 14h4"/></svg></div>
+          <div class="insp-n">49 — 70</div>
+          <div class="insp-t">Electrónica y tablero</div>
+          <div class="insp-d">Códigos de error por OBD-II, luces testigo, sensores y sistemas de seguridad.</div>
+        </div>
+        <div class="insp-card">
+          <div class="insp-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div class="insp-n">71 — 88</div>
+          <div class="insp-t">Carrocería y desgaste</div>
+          <div class="insp-d">Pintura, corrosión, llantas, kilometraje y evidencia de uso real del vehículo.</div>
+        </div>
+        <div class="insp-card">
+          <div class="insp-ic"><svg viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 001 1h4"/><path d="M5 3h9l5 5v11a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M9 13h6M9 17h4"/></svg></div>
+          <div class="insp-n">Legal</div>
+          <div class="insp-t">Título y documentación</div>
+          <div class="insp-d">Gravámenes, prendas, multas pendientes y validación del propietario en SAT.</div>
+        </div>
+        <div class="insp-card">
+          <div class="insp-ic"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg></div>
+          <div class="insp-n">Veredicto</div>
+          <div class="insp-t">Reporte ejecutivo</div>
+          <div class="insp-d">Una recomendación clara — comprar, negociar o rechazar — y cuánto podrías ahorrar.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- ── CÓMO FUNCIONA ─────────────────────────────────────── -->
+  <!-- ── CÓMO FUNCIONA ───────────────────────────────────────── -->
   <section id="como" aria-labelledby="como-hd">
     <div class="container">
-      <h2 id="como-hd" class="section-hd fi">Así de simple</h2>
-      <div class="steps fi fi-d1">
-        <div class="step">
-          <div class="step-n">1</div>
-          <p class="step-t">Escríbenos por WhatsApp con los datos del vehículo</p>
-        </div>
-        <div class="step">
-          <div class="step-n">2</div>
-          <p class="step-t">El inspector va al lugar del carro — tú no tienes que ir</p>
-        </div>
-        <div class="step">
-          <div class="step-n">3</div>
-          <p class="step-t">Recibes tu reporte PDF en 24–48h con el veredicto</p>
+      <div data-reveal>
+        <p class="section-eyebrow">El proceso</p>
+        <h2 id="como-hd" class="section-hd">Así de simple</h2>
+        <p class="section-lead">Tú no tienes que ir a ningún lado. Nosotros vamos al carro.</p>
+      </div>
+      <div class="steps-wrap">
+        <div class="steps-rail"><div class="steps-rail-fill" id="railFill"></div></div>
+        <div class="steps">
+          <div class="step" data-step><div class="step-dot">1</div><h3 class="step-h">Escríbenos por WhatsApp</h3><p class="step-t">Compártenos la marca, modelo y ubicación del vehículo que quieres comprar.</p></div>
+          <div class="step" data-step><div class="step-dot">2</div><h3 class="step-h">Inspeccionamos en sitio</h3><p class="step-t">Nuestro inspector certificado va donde está el carro. Tú no tienes que moverte.</p></div>
+          <div class="step" data-step><div class="step-dot">3</div><h3 class="step-h">Recibes tu veredicto</h3><p class="step-t">En 24–48h te llega el reporte PDF con el veredicto y el QR de autenticidad.</p></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── POR QUÉ INDEPENDIENTE ───────────────────────────────── -->
+  <section id="porque" aria-labelledby="porque-hd">
+    <div class="container">
+      <div data-reveal>
+        <p class="section-eyebrow">La diferencia</p>
+        <h2 id="porque-hd" class="section-hd">¿Por qué no llevarlo a un taller?</h2>
+        <p class="section-lead">Porque un taller o una agencia tiene un incentivo: venderte reparaciones o el propio carro.</p>
+      </div>
+      <div class="compare" data-stagger>
+        <div class="comp-col comp-them">
+          <p class="comp-title c-navy">Taller o agencia</p>
+          <p class="comp-sub c-mute">Trabaja para cerrar la venta</p>
+          <ul class="comp-list">
+            <li><span class="ic-x">✕</span><span>Puede tener interés en venderte el vehículo</span></li>
+            <li><span class="ic-x">✕</span><span>Tiende a sugerir reparaciones propias</span></li>
+            <li><span class="ic-x">✕</span><span>Sin verificación legal ni de título</span></li>
+            <li><span class="ic-x">✕</span><span>Sin reporte verificable ni veredicto claro</span></li>
+          </ul>
+        </div>
+        <div class="comp-col comp-us">
+          <p class="comp-title c-white">CERTIMOTORS</p>
+          <p class="comp-sub c-w50">Trabaja solo para ti, el comprador</p>
+          <ul class="comp-list">
+            <li><span class="ic-ok">✓</span><span class="c-white">100% independiente — nunca vendemos carros</span></li>
+            <li><span class="ic-ok">✓</span><span class="c-white">110 puntos técnicos + verificación legal</span></li>
+            <li><span class="ic-ok">✓</span><span class="c-white">Reporte con QR verificable en línea</span></li>
+            <li><span class="ic-ok">✓</span><span class="c-white">Veredicto ejecutivo claro y accionable</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ── PACK BANNER ───────────────────────────────────────── -->
   <section id="pack" aria-label="Pack de inspecciones">
@@ -1245,47 +1158,30 @@
   <!-- ── FAQ ───────────────────────────────────────────────── -->
   <section id="faq" aria-labelledby="faq-hd">
     <div class="container">
-      <h2 id="faq-hd" class="section-hd fi">Preguntas frecuentes</h2>
-      <div class="faq-list fi fi-d1">
-
+      <div data-reveal>
+        <p class="section-eyebrow">Dudas</p>
+        <h2 id="faq-hd" class="section-hd">Preguntas frecuentes</h2>
+      </div>
+      <div class="faq-list" data-reveal>
         <div class="faq-item">
-          <div class="faq-q">
-            ¿Necesito estar presente durante la inspección?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </div>
-          <div class="faq-a">No. Coordinamos directamente con el vendedor. Tú recibes el reporte sin necesidad de ir al lugar.</div>
+          <div class="faq-q">¿Necesito estar presente durante la inspección?<span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a-wrap"><div class="faq-a">No. Coordinamos directamente con el vendedor. Tú recibes el reporte sin necesidad de ir al lugar.</div></div>
         </div>
-
         <div class="faq-item">
-          <div class="faq-q">
-            ¿Cuánto tarda?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </div>
-          <div class="faq-a">La inspección toma 90–120 minutos en sitio. El reporte lo recibes en 24–48 horas.</div>
+          <div class="faq-q">¿Cuánto tarda?<span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a-wrap"><div class="faq-a">La inspección toma 90–120 minutos en sitio. El reporte lo recibes en 24–48 horas.</div></div>
         </div>
-
         <div class="faq-item">
-          <div class="faq-q">
-            ¿El reporte tiene validez oficial?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </div>
-          <div class="faq-a">Incluye QR de autenticidad verificable en línea y tiene validez de 90 días desde la fecha de inspección.</div>
+          <div class="faq-q">¿El reporte tiene validez oficial?<span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a-wrap"><div class="faq-a">Incluye QR de autenticidad verificable en línea y tiene validez de 90 días desde la fecha de inspección.</div></div>
         </div>
-
         <div class="faq-item">
-          <div class="faq-q">
-            ¿Qué diferencia hay con llevar el carro a un taller?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </div>
-          <div class="faq-a">La independencia. Un taller o agencia tiene incentivo en venderte reparaciones o el propio vehículo. CERTIMOTORS solo trabaja para el comprador, nunca para el vendedor.</div>
+          <div class="faq-q">¿Qué diferencia hay con llevar el carro a un taller?<span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a-wrap"><div class="faq-a">La independencia. Un taller o agencia tiene incentivo en venderte reparaciones o el propio vehículo. CERTIMOTORS solo trabaja para el comprador, nunca para el vendedor.</div></div>
         </div>
-
         <div class="faq-item">
-          <div class="faq-q">
-            ¿Dónde hacen la inspección?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </div>
-          <div class="faq-a">Donde esté el vehículo, dentro del área metropolitana de Guatemala. Consulta cobertura para otros departamentos.</div>
+          <div class="faq-q">¿Dónde hacen la inspección?<span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a-wrap"><div class="faq-a">Donde esté el vehículo, dentro del área metropolitana de Guatemala. Consulta cobertura para otros departamentos.</div></div>
         </div>
 
         <div class="faq-item">
@@ -1304,32 +1200,33 @@
           <div class="faq-a">El reporte es tuyo y es independiente. Si el veredicto es "negociar" o "rechazar", te explicamos los hallazgos para que tomes la decisión con información completa. CERTIMOTORS no tiene ningún interés en el resultado — trabajamos para ti, no para el vendedor.</div>
         </div>
 
+
       </div>
     </div>
   </section>
 
-
-  <!-- ── CTA FINAL ─────────────────────────────────────────── -->
+  <!-- ── CTA FINAL ───────────────────────────────────────────── -->
   <section id="cta-final" aria-label="Llamada a la acción">
-    <h2 class="cta-h2 fi">¿Listo para comprar con certeza?</h2>
-    <p class="cta-sub fi fi-d1">Escríbenos ahora. La inspección puede ser mañana.</p>
-    <a href="#" data-wa class="btn-cta-lg fi fi-d2">Solicitar inspección por WhatsApp →</a>
+    <div class="hero-aura aura-gold"></div>
+    <div class="cta-inner">
+      <h2 class="cta-h2" data-reveal>¿Listo para comprar con certeza?</h2>
+      <p class="cta-sub" data-reveal>Escríbenos ahora. La inspección puede ser mañana.</p>
+      <a href="#" data-wa class="btn-cta-lg" data-reveal>Solicitar inspección por WhatsApp
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
   </section>
 
-
-  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <!-- ── FOOTER ──────────────────────────────────────────────── -->
   <footer id="footer">
     <div class="container footer-inner">
       <a href="/" class="logo-html logo-dark" aria-label="CERTIMOTORS — inicio">
-        <div class="logo-row">
-          <span class="lc">CERTI</span>
-          <div class="ls" aria-hidden="true"></div>
-          <span class="lm">MOTORS</span>
-        </div>
+        <div class="logo-row"><span class="lc">CERTI</span><div class="ls" aria-hidden="true"></div><span class="lm">MOTORS</span></div>
         <span class="lt">Inspección certificada · Guatemala</span>
       </a>
       <nav class="footer-links" aria-label="Navegación pie de página">
         <a href="#servicios">Servicios</a>
+        <a href="#puntos">Qué inspeccionamos</a>
         <a href="#como">Cómo funciona</a>
         <a href="#cobertura">Cobertura</a>
         <a href="#b2b">Empresas</a>
@@ -1437,17 +1334,15 @@
   <!-- ── WHATSAPP FAB ───────────────────────────────────────── -->
   <a href="#" data-wa class="wa-fab" aria-label="Escribir por WhatsApp" target="_blank" rel="noopener noreferrer">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 21.95a.5.5 0 0 0 .612.612l4.782-1.387A9.953 9.953 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm-1.07 5.5c-.25-.006-.52.087-.74.31-.33.327-1.22 1.19-1.22 2.9s1.25 3.36 1.43 3.59c.17.23 2.41 3.82 5.93 5.21.74.3 1.31.47 1.76.59.74.2 1.41.17 1.94.1.59-.08 1.82-.75 2.08-1.47.26-.72.26-1.34.18-1.47-.08-.13-.29-.21-.6-.37-.32-.16-1.88-.93-2.17-1.04-.29-.1-.5-.16-.71.16-.21.32-.82 1.04-1.01 1.25-.18.21-.37.24-.69.08-.32-.16-1.36-.5-2.58-1.6-.96-.85-1.6-1.9-1.79-2.22-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.72-.97-2.35-.26-.63-.52-.53-.72-.54z"
-        fill="var(--cm-canvas)"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 21.95a.5.5 0 0 0 .612.612l4.782-1.387A9.953 9.953 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm-1.07 5.5c-.25-.006-.52.087-.74.31-.33.327-1.22 1.19-1.22 2.9s1.25 3.36 1.43 3.59c.17.23 2.41 3.82 5.93 5.21.74.3 1.31.47 1.76.59.74.2 1.41.17 1.94.1.59-.08 1.82-.75 2.08-1.47.26-.72.26-1.34.18-1.47-.08-.13-.29-.21-.6-.37-.32-.16-1.88-.93-2.17-1.04-.29-.1-.5-.16-.71.16-.21.32-.82 1.04-1.01 1.25-.18.21-.37.24-.69.08-.32-.16-1.36-.5-2.58-1.6-.96-.85-1.6-1.9-1.79-2.22-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.72-.97-2.35-.26-.63-.52-.53-.72-.54z" fill="var(--cm-canvas)"/>
     </svg>
   </a>
 
-
-  <!-- ── JS ─────────────────────────────────────────────────── -->
+  <!-- ── JS ──────────────────────────────────────────────────── -->
   <script>
     'use strict';
 
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const WA_URL  = 'https://wa.me/50241151444?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo.';
     const WA_PACK = 'https://wa.me/50241151444?text=Hola%20CERTIMOTORS%2C%20quiero%20informaci%C3%B3n%20del%20Pack%20de%202%20inspecciones%20con%2040%25%20de%20descuento%20en%20la%20segunda.';
     const WA_B2B  = 'https://wa.me/50241151444?text=Hola%20CERTIMOTORS%2C%20represento%20una%20concesionaria%2Fflota%20y%20quiero%20cotizar%20certificaciones%20por%20volumen.';
@@ -1464,18 +1359,94 @@
     wireWA('[data-wa-pack]', WA_PACK);
     wireWA('[data-wa-b2b]',  WA_B2B);
 
-    // Navbar scroll behavior
+    // ── Navbar: scrolled style + hide on scroll-down ──
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
+    const progress = document.getElementById('progress');
+    let lastY = 0;
+    function onScroll() {
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 60);
+      if (y > 400 && y > lastY + 4) nav.classList.add('hidden');
+      else if (y < lastY - 4) nav.classList.remove('hidden');
+      lastY = y;
+      // progress bar
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-    // FAQ accordion
+    // ── Scroll reveal (cinematic stagger) ──
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          el.classList.add('in');
+          if (el.hasAttribute('data-stagger')) {
+            [...el.children].forEach((c, i) => { c.style.transitionDelay = (i * 0.09) + 's'; });
+          }
+          io.unobserve(el);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('[data-reveal], [data-stagger]').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('[data-reveal], [data-stagger]').forEach(el => el.classList.add('in'));
+    }
+
+    // ── Count-up numbers ──
+    function countUp(el) {
+      const target = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const dur = 1400; const start = performance.now();
+      function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); cio.unobserve(e.target); } });
+      }, { threshold: 0.6 });
+      document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+    } else {
+      document.querySelectorAll('[data-count]').forEach(el => el.textContent = el.dataset.count + (el.dataset.suffix || ''));
+    }
+
+    // ── Steps progress rail + active dots ──
+    const steps = document.querySelectorAll('[data-step]');
+    const railFill = document.getElementById('railFill');
+    if (steps.length && !reduceMotion) {
+      const sio = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+        const activeCount = document.querySelectorAll('[data-step].active').length;
+        if (railFill) railFill.style.width = Math.min(activeCount / steps.length * 100, 100) + '%';
+      }, { threshold: 0.5 });
+      steps.forEach(s => sio.observe(s));
+    } else {
+      steps.forEach(s => s.classList.add('active'));
+      if (railFill) railFill.style.width = '100%';
+    }
+
+    // ── Hero parallax on scroll ──
+    if (!reduceMotion) {
+      const parallax = document.querySelectorAll('[data-parallax]');
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        parallax.forEach(el => { el.style.transform = `translateY(${y * parseFloat(el.dataset.parallax)}px)`; });
+      }, { passive: true });
+    }
+
+    // ── FAQ accordion (animated height) ──
     document.querySelectorAll('.faq-item').forEach(item => {
-      item.querySelector('.faq-q').addEventListener('click', () => {
+      const q = item.querySelector('.faq-q');
+      const wrap = item.querySelector('.faq-a-wrap');
+      q.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
+        document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a-wrap').style.maxHeight = null; });
+        if (!isOpen) { item.classList.add('open'); wrap.style.maxHeight = wrap.scrollHeight + 'px'; }
       });
     });
 
@@ -1636,6 +1607,5 @@
       }
     }
   </script>
-
 </body>
 </html>
