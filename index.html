@@ -42,6 +42,14 @@
     }
   }
   </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-17RQ4B76BR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-17RQ4B76BR');
+  </script>
   <link rel="stylesheet" href="tokens.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1575,6 +1583,9 @@
         const j2 = await r2.json();
         if (!r2.ok) throw new Error(j2.error || 'Error al crear el pago.');
 
+        // Guardar servicio para el evento de conversión al volver de Recurrente
+        sessionStorage.setItem('cm_servicio', planActual);
+
         // Redirigir al checkout de Recurrente
         window.location.href = j2.checkout_url;
 
@@ -1603,6 +1614,18 @@
       if (paid) {
         paid.hidden = false;
         paid.scrollIntoView({ behavior: 'smooth' });
+
+        // Evento de conversión GA4
+        const _servicio = sessionStorage.getItem('cm_servicio') || 'DESCONOCIDO';
+        const _valor    = { SCANNER: 300, ESTANDAR: 550, FULL: 800 }[_servicio] || 0;
+        gtag('event', 'checkout_completado', {
+          servicio:  _servicio,
+          orden_id:  params.get('orden') || undefined,
+          value:     _valor,
+          currency:  'GTQ',
+        });
+        sessionStorage.removeItem('cm_servicio');
+
         // Reconectar el botón de WhatsApp dentro de la pantalla de confirmación
         wireWA('#paid-screen [data-wa]', WA_URL);
         // Ocultar hero y trust strip para que la confirmación ocupe el foco
