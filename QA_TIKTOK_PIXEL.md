@@ -1,8 +1,7 @@
-# QA — TikTok Pixel D9GINHRC77U6Q0JCP310
+# QA — TikTok Pixel D9GISS3C77U6Q0JCP34G
 **Fecha:** 2026-07-22
-**Rama:** feat/tiktok-pixel → mergeada a main
-**Commit merge:** ecc3cbbe8b06d929f7f1cb5dc50c2036614605ed
-**PR:** #8
+**PRs:** #8 (instalación inicial) → #9 (corrección Pixel ID)
+**Commits main:** ecc3cbbe (pixel) → 7e5b769 (QA doc) → 8d586b1 (fix ID)
 
 ---
 
@@ -10,13 +9,12 @@
 
 | Check | Resultado |
 |---|---|
-| Commit en rama | `1bbea52` en `feat/tiktok-pixel` |
-| Push al remoto | OK |
-| PR #8 mergeado | ✅ `ecc3cbbe` a main — 2026-07-22T20:58:16Z |
-| Pixel en HTML producción | ✅ CONFIRMADO — polling via `until curl` salió con exit code 0 |
+| PR #8 mergeado | ✅ `ecc3cbbe` — 2026-07-22T20:58:16Z (ID incorrecto, ver PR #9) |
+| PR #9 mergeado | ✅ `8d586b1` — 2026-07-22T21:09:58Z (corrección Pixel ID) |
+| Pixel ID correcto en producción | ✅ CONFIRMADO — curl + network request |
 
 ```
-$ until curl -sL https://www.certimotors.com | grep -q "D9GINHRC77U6Q0JCP310"; do sleep 5; done && echo "LIVE"
+$ until curl -sL https://www.certimotors.com | grep -q "D9GISS3C77U6Q0JCP34G"; do sleep 5; done && echo "LIVE"
 LIVE
 ```
 
@@ -37,7 +35,7 @@ LIVE
 <script>
   !function (w, d, t) {
     ...
-    ttq.load('D9GINHRC77U6Q0JCP310');
+    ttq.load('D9GISS3C77U6Q0JCP34G');
     ttq.page();
   }(window, document, 'ttq');
 </script>
@@ -54,7 +52,7 @@ Origen: `https://www.certimotors.com` (carga normal, sin params)
 
 | Request | URL | Método | Status |
 |---|---|---|---|
-| Pixel SDK | `analytics.tiktok.com/i18n/pixel/events.js?sdkid=D9GINHRC77U6Q0JCP310` | GET | 200 ✅ |
+| Pixel SDK | `analytics.tiktok.com/i18n/pixel/events.js?sdkid=D9GISS3C77U6Q0JCP34G` | GET | 200 ✅ |
 | PageView | `analytics.tiktok.com/api/v2/pixel` | POST | 200 ✅ |
 | Pixel act | `analytics.tiktok.com/api/v2/pixel/act` | POST | 200 ✅ |
 
@@ -178,9 +176,9 @@ Estas son de sesiones QA previas. Si querés limpiarlas, confirmame y las borro.
 
 | Punto | Estado |
 |---|---|
-| Commit y push | ✅ `1bbea52` |
-| PR #8 mergeado a main | ✅ `ecc3cbbe` — 2026-07-22T20:58:16Z |
-| Pixel en producción (curl) | ✅ Confirmado |
+| PR #8 mergeado a main | ✅ `ecc3cbbe` — 2026-07-22T20:58:16Z (ID incorrecto) |
+| PR #9 mergeado a main | ✅ `8d586b1` — 2026-07-22T21:09:58Z (ID correcto) |
+| Pixel `D9GISS3C77U6Q0JCP34G` en producción | ✅ Confirmado (curl + SDK network request) |
 | PageView en carga normal | ✅ `/api/v2/pixel` POST 200 |
 | Purchase en `?paid=1` | ✅ Segundo `/api/v2/pixel` POST 200 |
 | Guard `?paid=1` verificado vs backend | ✅ Línea 377 `CERTIMOTORS-repo/src/index.js` |
