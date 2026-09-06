@@ -9,14 +9,26 @@
   <meta property="og:url"         content="https://certimotors.com/">
   <meta property="og:title"       content="CERTIMOTORS — Inspección independiente de vehículos · Guatemala">
   <meta property="og:description" content="Inspección técnica independiente de 110 puntos y verificación legal antes de comprar tu vehículo usado en Guatemala. Scanner Q300 · Estándar Q550 · Full Q800. Reporte en 24–48h.">
-  <meta property="og:image"       content="https://certimotors.com/logo.svg">
+  <meta property="og:image"       content="https://certimotors.com/assets/social/certimotors-1200x630.png">
+  <meta property="og:image:type"  content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="CERTIMOTORS — Inspección certificada · Guatemala">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:image"      content="https://certimotors.com/assets/social/certimotors-1200x630.png">
+  <meta name="twitter:image:alt"  content="CERTIMOTORS — Inspección certificada · Guatemala">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "AutomotiveBusiness",
+    "@id": "https://certimotors.com/#business",
     "name": "CERTIMOTORS",
     "description": "Inspección técnica independiente de vehículos usados en Guatemala. 110 puntos de inspección más verificación legal. Reporte con veredicto ejecutivo en 24–48h.",
     "url": "https://certimotors.com",
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61591693284957",
+      "https://share.google/crQcBfELRW5tPBgzg"
+    ],
     "telephone": "+50242558723",
     "areaServed": [
       "Ciudad de Guatemala",
@@ -35,9 +47,9 @@
       "@type": "OfferCatalog",
       "name": "Servicios de inspección vehicular",
       "itemListElement": [
-        { "@type": "Offer", "name": "Inspección Scanner",   "price": "300", "priceCurrency": "GTQ" },
-        { "@type": "Offer", "name": "Inspección Estándar",  "price": "550", "priceCurrency": "GTQ" },
-        { "@type": "Offer", "name": "Inspección Full",      "price": "800", "priceCurrency": "GTQ" }
+        { "@type": "Offer", "name": "Inspección Scanner",   "price": "300", "priceCurrency": "GTQ", "url": "https://certimotors.com/#servicios" },
+        { "@type": "Offer", "name": "Inspección Estándar",  "price": "550", "priceCurrency": "GTQ", "url": "https://certimotors.com/#servicios" },
+        { "@type": "Offer", "name": "Inspección Full",      "price": "800", "priceCurrency": "GTQ", "url": "https://certimotors.com/#servicios" }
       ]
     }
   }
@@ -842,6 +854,9 @@
     html { scroll-padding-top: 104px; }
     body { line-height: 1.6; }
     button, input, select { font: inherit; }
+    button[data-checkout] { appearance: none; cursor: pointer; }
+    button[data-checkout].btn-gold-block { border: 0; }
+    .source-link { text-decoration: underline; text-underline-offset: .15em; }
     button, a, input, select { -webkit-tap-highlight-color: transparent; }
     a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
       outline: 3px solid #b48440; outline-offset: 5px;
@@ -1510,6 +1525,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
     </div>
   </nav>
 
+  <main>
   <!-- ── HERO ────────────────────────────────────────────────── -->
   <section id="hero" aria-labelledby="hero-h1">
     <div class="hero-aura aura-gold" data-parallax="0.18"></div>
@@ -1565,7 +1581,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
             <li><span class="feat-check">✓</span><span class="c-navy">Reporte digital con códigos de error detectados</span></li>
             <li><span class="feat-check">✓</span><span class="c-navy">Ideal como primer filtro antes de decidir</span></li>
           </ul>
-          <a href="#" data-checkout="SCANNER" class="btn-outline">Solicitar Scanner</a>
+          <button type="button" data-checkout="SCANNER" class="btn-outline">Solicitar Scanner</button>
         </div>
 
         <!-- Estándar -->
@@ -1583,7 +1599,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
             <li><span class="feat-check">✓</span><span class="c-navy">QR de autenticidad verificable</span></li>
             <li><span class="feat-check">✓</span><span class="c-navy">Validez 90 días</span></li>
           </ul>
-          <a href="#" data-checkout="ESTANDAR" class="btn-outline">Solicitar Estándar</a>
+          <button type="button" data-checkout="ESTANDAR" class="btn-outline">Solicitar Estándar</button>
         </div>
         <!-- Full -->
         <div class="card card-full">
@@ -1596,13 +1612,13 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
           <div class="card-hr-dark"></div>
           <p class="card-note c-w68">Todo lo del Estándar, más:</p>
           <ul class="feat-list">
-            <li><span class="feat-check">✓</span><span class="c-white">Verificación de título y matrícula</span></li>
-            <li><span class="feat-check">✓</span><span class="c-white">Consulta de gravámenes y prendas</span></li>
+            <li><span class="feat-check">✓</span><span class="c-white"><a href="https://portal.sat.gob.gt/portal/distintivos-electronicos/" class="source-link" target="_blank" rel="noopener noreferrer">Verificación de título y matrícula</a></span></li>
+            <li><span class="feat-check">✓</span><span class="c-white"><a href="https://rgm.gob.gt/preguntas-frecuentes/" class="source-link" target="_blank" rel="noopener noreferrer">Consulta de gravámenes y prendas</a></span></li>
             <li><span class="feat-check">✓</span><span class="c-white">Verificación de chasis y motor (VIN)</span></li>
             <li><span class="feat-check">✓</span><span class="c-white">Historial de multas de tránsito</span></li>
-            <li><span class="feat-check">✓</span><span class="c-white">Validación de propietario en SAT</span></li>
+            <li><span class="feat-check">✓</span><span class="c-white">Validación de propietario en <a href="https://portal.sat.gob.gt/portal/" class="source-link" target="_blank" rel="noopener noreferrer">SAT</a></span></li>
           </ul>
-          <a href="#" data-checkout="FULL" class="btn-gold-block">Solicitar Full</a>
+          <button type="button" data-checkout="FULL" class="btn-gold-block">Solicitar Full</button>
         </div>
       </div>
     </div>
@@ -1646,7 +1662,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
           <div class="insp-ic"><svg viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 001 1h4"/><path d="M5 3h9l5 5v11a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M9 13h6M9 17h4"/></svg></div>
           <div class="insp-n">Legal</div>
           <div class="insp-t">Título y documentación</div>
-          <div class="insp-d">Gravámenes, prendas, multas pendientes y validación del propietario en SAT.</div>
+          <div class="insp-d"><a href="https://rgm.gob.gt/preguntas-frecuentes/" class="source-link" target="_blank" rel="noopener noreferrer">Gravámenes, prendas</a>, multas pendientes y validación del propietario en <a href="https://portal.sat.gob.gt/portal/" class="source-link" target="_blank" rel="noopener noreferrer">SAT</a>.</div>
         </div>
         <div class="insp-card">
           <div class="insp-ic"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg></div>
@@ -1718,7 +1734,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
           <p class="pack-eyebrow">Pack CERTIMOTORS</p>
           <p class="pack-p">Pack 2 inspecciones: la 2da con 40% de descuento.</p>
         </div>
-        <a href="#" data-wa-pack class="btn-outline" style="white-space:nowrap;flex-shrink:0;">Preguntar por el Pack</a>
+        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20informaci%C3%B3n%20del%20Pack%20de%202%20inspecciones%20con%2040%25%20de%20descuento%20en%20la%20segunda." data-wa-pack class="btn-outline" style="white-space:nowrap;flex-shrink:0;" target="_blank" rel="noopener noreferrer">Preguntar por el Pack</a>
       </div>
     </div>
   </section>
@@ -1791,7 +1807,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
       </div>
 
       <p class="cobertura-footer fi fi-d3">
-        ¿Tu municipio no aparece? <a href="#" data-wa>Escríbenos</a> y lo cotizamos.
+        ¿Tu municipio no aparece? <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo." data-wa target="_blank" rel="noopener noreferrer">Escríbenos</a> y lo cotizamos.
       </p>
     </div>
   </section>
@@ -1804,7 +1820,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
         <p class="section-eyebrow">Para Empresas</p>
         <h2 id="b2b-hd" class="section-hd" style="margin-bottom:0;">¿Sos concesionaria o tenés flota?</h2>
         <p class="b2b-copy">Certificamos varios vehículos con tarifas preferenciales para concesionarias, agencias y flotas. Escríbenos y armamos una propuesta a tu medida.</p>
-        <a href="#" data-wa-b2b class="btn-primary" style="align-self:flex-start;">Cotizar por volumen →</a>
+        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20represento%20una%20concesionaria%2Fflota%20y%20quiero%20cotizar%20certificaciones%20por%20volumen." data-wa-b2b class="btn-primary" style="align-self:flex-start;" target="_blank" rel="noopener noreferrer">Cotizar por volumen →</a>
       </div>
     </div>
   </section>
@@ -1872,6 +1888,8 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
     </div>
   </section>
 
+  </main>
+
   <!-- ── FOOTER ──────────────────────────────────────────────── -->
   <footer id="footer">
     <div class="container footer-inner">
@@ -1886,7 +1904,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
         <a href="#cobertura">Cobertura</a>
         <a href="#b2b">Empresas</a>
         <a href="#faq">Preguntas frecuentes</a>
-        <a href="#" data-wa>WhatsApp</a>
+        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo." data-wa target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </nav>
       <p class="footer-copy">© 2026 CERTIMOTORS. Todos los derechos reservados.</p>
     </div>
@@ -1968,7 +1986,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
       <div id="form-error" class="form-error" role="alert" hidden></div>
 
       <button type="submit" class="btn-primary btn-full" id="submit-btn">Continuar al pago →</button>
-      <p class="form-legal">Al continuar aceptas que CERTIMOTORS procese tus datos para coordinar la inspección. ¿Dudas? <a href="#" data-wa class="form-legal-wa">WhatsApp →</a></p>
+      <p class="form-legal">Al continuar aceptas que CERTIMOTORS procese tus datos para coordinar la inspección. ¿Dudas? <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo." data-wa class="form-legal-wa" target="_blank" rel="noopener noreferrer">WhatsApp →</a></p>
     </form>
   </dialog>
 
@@ -1977,17 +1995,17 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
     <div class="container">
       <div class="paid-inner">
         <div class="paid-check" aria-hidden="true">✓</div>
-        <h1 class="paid-h1">¡Pago recibido!</h1>
+        <h2 class="paid-h1">¡Pago recibido!</h2>
         <p class="paid-p">Tu orden está registrada. Te contactaremos en las próximas horas por WhatsApp para confirmar la fecha y hora de la inspección.</p>
         <p class="paid-p" style="margin-top:8px">Si tienes alguna duda, escríbenos directamente.</p>
-        <a href="#" data-wa class="btn-primary" style="margin-top:24px">Escribir por WhatsApp →</a>
+        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo." data-wa class="btn-primary" style="margin-top:24px" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp →</a>
         <a href="/" class="paid-link">Volver al inicio</a>
       </div>
     </div>
   </section>
 
   <!-- ── WHATSAPP FAB ───────────────────────────────────────── -->
-  <a href="#" data-wa class="wa-fab" aria-label="Escribir por WhatsApp" target="_blank" rel="noopener noreferrer">
+  <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo." data-wa class="wa-fab" aria-label="Escribir por WhatsApp" target="_blank" rel="noopener noreferrer">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 21.95a.5.5 0 0 0 .612.612l4.782-1.387A9.953 9.953 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm-1.07 5.5c-.25-.006-.52.087-.74.31-.33.327-1.22 1.19-1.22 2.9s1.25 3.36 1.43 3.59c.17.23 2.41 3.82 5.93 5.21.74.3 1.31.47 1.76.59.74.2 1.41.17 1.94.1.59-.08 1.82-.75 2.08-1.47.26-.72.26-1.34.18-1.47-.08-.13-.29-.21-.6-.37-.32-.16-1.88-.93-2.17-1.04-.29-.1-.5-.16-.71.16-.21.32-.82 1.04-1.01 1.25-.18.21-.37.24-.69.08-.32-.16-1.36-.5-2.58-1.6-.96-.85-1.6-1.9-1.79-2.22-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.72-.97-2.35-.26-.63-.52-.53-.72-.54z" fill="var(--cm-canvas)"/>
     </svg>
