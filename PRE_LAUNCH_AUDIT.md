@@ -20,7 +20,7 @@ Arquitectura: una página HTML estática con CSS y JavaScript nativo, publicada 
 | 12 | Page load speed | ❌ FAIL | ✅ PASS | Hero priorizado, previews diferidas, fuente DM Sans alojada localmente y trackers diferidos por consentimiento. Lighthouse: 60 → 97; LCP 7.1 s → 2.4 s; TBT 365 ms → 0 ms; 34 → 5 requests. | Repetir Lighthouse en la URL pública tras desplegar y revisar datos de campo cuando exista tráfico. |
 | 13 | Color contrast | ❌ FAIL | ✅ PASS | Se oscureció el eyebrow dorado en fondos claros. Lighthouse accesibilidad pasó de 96 a 100 sin fallos de contraste. | Ninguna. |
 | 14 | Mobile friendly | ✅ PASS | ✅ PASS | Se comprobó 320, 375, 390, 768, 1024 y 1440 px; no hubo overflow horizontal. Formulario, modal, grids, imágenes, navegación y banner permanecen dentro del viewport. | Prueba rápida en un iPhone y un Android reales antes de campañas pagadas. |
-| 15 | Custom 404 | ❌ FAIL | ✅ PASS | Se creó `404.html` consistente con la marca, con explicación, regreso al home, WhatsApp y `noindex`. | Confirmar después del despliegue que una ruta inexistente responda HTTP 404 mostrando esta página. |
+| 15 | Custom 404 | ❌ FAIL | ✅ PASS | Se creó `404.html` consistente con la marca, con explicación, regreso al home, WhatsApp y `noindex`. En producción, una ruta inexistente respondió HTTP 404 con esta página. | Ninguna. |
 | 16 | Broken links | 🟡 PARTIAL | ✅ PASS | No quedan referencias locales ni anchors rotos. La muestra básica se sirve desde el mismo sitio; SAT, RGM, WhatsApp, Facebook y perfil de Google respondieron 200 durante la auditoría. | Vigilar enlaces oficiales y del backend; son dependencias externas. |
 | 17 | Form validation | 🟡 PARTIAL | ✅ PASS | Se agregaron límites, validación nativa de email/año/fecha, rango de teléfono, fecha local correcta, foco y `aria-describedby` en errores, loading y protección contra doble envío. El checkout solo acepta una URL HTTPS. La persona responsable confirmó la validación equivalente en Render. | Ninguna. |
 | 18 | Spam protection | ❌ FAIL | ✅ PASS | El frontend evita envíos duplicados y el backend público muestra headers de rate limit. La persona responsable confirmó la protección en Render. | Vigilar métricas de abuso y agregar Turnstile únicamente si existe abuso real. |
@@ -90,6 +90,7 @@ Arquitectura: una página HTML estática con CSS y JavaScript nativo, publicada 
 - **Performance:** ✅ Lighthouse móvil final 97/100; FCP 1.5 s, LCP 2.4 s, TBT 0 ms, CLS 0, Speed Index 1.5 s. La referencia “buena” de Core Web Vitals es LCP ≤2.5 s, INP ≤200 ms y CLS ≤0.1 al percentil 75.
 - **Network:** ✅ 34 → 5 requests, 1,287,448 → 257,510 bytes y 662,373 → 0 bytes de tracking antes de consentimiento.
 - **SEO/best practices:** ✅ Lighthouse 100/100 en ambas categorías. Validación de Rich Results sobre la URL queda pendiente hasta publicar.
+- **Producción:** ✅ GitHub Pages completó correctamente el despliegue del commit `5d4b304`. Home, privacidad, términos, robots, sitemap, favicon y el PDF básico respondieron 200; una ruta inexistente respondió 404. El home y el PDF publicados coinciden byte por byte con los archivos locales validados.
 
 Las cifras iniciales corresponden a la URL pública y las finales al servidor local con throttling móvil de Lighthouse. Son comparables como señal de laboratorio, pero deben confirmarse en la URL publicada y con datos de campo.
 
