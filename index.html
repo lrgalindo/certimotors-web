@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CERTIMOTORS — Inspección independiente de vehículos · Guatemala</title>
   <meta name="description" content="Inspección técnica independiente de 110 puntos y verificación legal antes de comprar tu vehículo usado en Guatemala. Scanner Q300 · Estándar Q550 · Full Q800. Reporte en 24–48h.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#142338">
+  <link rel="canonical" href="https://certimotors.com/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://certimotors.com/">
   <meta property="og:title"       content="CERTIMOTORS — Inspección independiente de vehículos · Guatemala">
@@ -15,6 +19,8 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt"   content="CERTIMOTORS — Inspección certificada · Guatemala">
   <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:title"      content="CERTIMOTORS — Inspección independiente de vehículos · Guatemala">
+  <meta name="twitter:description" content="Inspección técnica independiente de 110 puntos y verificación legal antes de comprar tu vehículo usado en Guatemala.">
   <meta name="twitter:image"      content="https://certimotors.com/assets/social/certimotors-1200x630.png">
   <meta name="twitter:image:alt"  content="CERTIMOTORS — Inspección certificada · Guatemala">
   <script type="application/ld+json">
@@ -25,6 +31,7 @@
     "name": "CERTIMOTORS",
     "description": "Inspección técnica independiente de vehículos usados en Guatemala. 110 puntos de inspección más verificación legal. Reporte con veredicto ejecutivo en 24–48h.",
     "url": "https://certimotors.com",
+    "image": "https://certimotors.com/assets/social/certimotors-1200x630.png",
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61591693284957",
       "https://share.google/crQcBfELRW5tPBgzg"
@@ -54,10 +61,24 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Necesito estar presente durante la inspección?", "acceptedAnswer": { "@type": "Answer", "text": "No. Coordinamos directamente con el vendedor. Tú recibes el reporte sin necesidad de ir al lugar." } },
+      { "@type": "Question", "name": "¿Cuánto tarda?", "acceptedAnswer": { "@type": "Answer", "text": "La inspección toma 90–120 minutos en sitio. El reporte lo recibes en 24–48 horas." } },
+      { "@type": "Question", "name": "¿El reporte tiene validez oficial?", "acceptedAnswer": { "@type": "Answer", "text": "Incluye QR de autenticidad verificable en línea y tiene validez de 90 días desde la fecha de inspección." } },
+      { "@type": "Question", "name": "¿Qué diferencia hay con llevar el carro a un taller?", "acceptedAnswer": { "@type": "Answer", "text": "La independencia. Un taller o agencia tiene incentivo en venderte reparaciones o el propio vehículo. CERTIMOTORS solo trabaja para el comprador, nunca para el vendedor." } },
+      { "@type": "Question", "name": "¿Dónde hacen la inspección?", "acceptedAnswer": { "@type": "Answer", "text": "Donde esté el vehículo, dentro del área metropolitana de Guatemala. Consulta cobertura para otros departamentos." } },
+      { "@type": "Question", "name": "¿Puedo cambiar la fecha de mi inspección?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Coordinamos cualquier cambio de fecha u hora y las solicitudes de cancelación o reembolso directamente por WhatsApp. Cada caso se resuelve de forma individual." } },
+      { "@type": "Question", "name": "¿Qué pasa si el reporte dice que no debo comprar el vehículo?", "acceptedAnswer": { "@type": "Answer", "text": "El reporte es tuyo y es independiente. Si el veredicto es negociar o rechazar, te explicamos los hallazgos para que tomes la decisión con información completa." } }
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="tokens.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link rel="preload" as="font" href="assets/fonts/dm-sans-latin.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/design/inspection-hero.webp" type="image/webp" fetchpriority="high">
   <style>
     /* ── Extra tokens ─────────────────────────────────────────── */
     :root {
@@ -157,7 +178,7 @@
     #nav.scrolled .nav-links a.nl { color: var(--cm-ink-secondary); }
     #nav.scrolled .nav-links a.nl:hover { color: var(--cm-navy); }
     .nav-logo-dark { display: inline-flex; } .nav-logo-light { display: none; }
-    #nav.scrolled .nav-logo-dark { display: none; } #nav.scrolled .nav-logo-light { display: block; }
+    #nav.scrolled .nav-logo-dark { display: none; } #nav.scrolled .nav-logo-light { display: inline-flex; }
     .nav-right { display: flex; align-items: center; gap: 24px; }
     .btn-nav {
       display: inline-flex; align-items: center; padding: 9px 18px;
@@ -869,7 +890,7 @@
       line-height: 1.1; letter-spacing: -.045em; margin-bottom: 28px;
       text-wrap: balance;
     }
-    .section-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; margin-bottom: 20px; }
+    .section-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; margin-bottom: 20px; color: var(--cm-gold-deep); }
     .section-lead, .section-sub { font-size: 17px; line-height: 1.75; max-width: 580px; }
     .section-lead { margin-top: 20px; }
     .section-sub { margin-top: 0; }
@@ -906,7 +927,7 @@
     #hero { background: #0b1520; min-height: 770px; padding: 165px 0 100px; isolation: isolate; }
     #hero::before {
       content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none;
-      background: url('assets/design/inspection-hero.jpg') no-repeat right center / cover;
+      background: #0b1520 url('assets/design/inspection-hero.webp') no-repeat right center / cover;
     }
     #hero::after {
       content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
@@ -1181,21 +1202,20 @@
   border-radius: 12px;
   overflow: hidden;
 }
-.muestra-card::before {
-  content: "";
+.muestra-preview {
   display: block;
   width: min(100%, 220px);
+  height: auto;
   aspect-ratio: 600 / 777;
   align-self: center;
   margin-bottom: 18px;
   border: 1px solid #dce0e3;
   border-radius: 3px;
   box-shadow: 0 8px 18px -12px rgb(20 35 56 / 26%);
-  background: #fff url('assets/design/report-standard.jpg') center / contain no-repeat;
-  pointer-events: none;
+  background: #fff;
+  object-fit: contain;
 }
-.muestra-card:nth-child(2)::before {
-  background-image: url('assets/design/report-full.jpg');
+.muestra-card:nth-child(2) .muestra-preview {
   transform: rotate(1.5deg);
 }
 .muestra-label { color: var(--cm-navy); font-size: 18px; font-weight: 700; letter-spacing: -.025em; }
@@ -1351,7 +1371,15 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
 #submit-btn { border: 1px solid transparent; min-height: 52px; border-radius: 8px; font-size: 15px; font-weight: 700; }
 #submit-btn:disabled { cursor: wait; opacity: .6; transform: none; box-shadow: none; }
 .form-legal { margin-top: 16px; font-size: 11px; color: #65717c; line-height: 1.65; }
+.form-legal a { color: #30465d; text-decoration: underline; text-underline-offset: 3px; }
 .form-legal-wa { color: #30465d; text-decoration: underline; text-underline-offset: 3px; }
+.plate-input { text-transform: uppercase; letter-spacing: .08em; }
+.pack-cta { white-space: nowrap; flex-shrink: 0; }
+.coverage-eyebrow { margin-bottom: 12px; }
+.b2b-title { margin-bottom: 0; }
+.b2b-cta { align-self: flex-start; }
+.paid-followup { margin-top: 8px; }
+.paid-whatsapp { margin-top: 24px; }
 
 /* Existing payment success state, including its original return actions. */
 #paid-screen { padding: 110px 0; background: #f4f5f2; border-top: 1px solid #dce0e3; }
@@ -1419,7 +1447,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
 @media (max-width: 480px) {
   .muestra-grid { grid-template-columns: minmax(0, 1fr); }
   .muestra-card { padding: 24px; }
-  .muestra-card::before { height: auto; width: min(100%, 240px); align-self: center; margin-bottom: 18px; }
+  .muestra-preview { height: auto; width: min(100%, 240px); align-self: center; margin-bottom: 18px; }
   .muestra-label { font-size: 19px; }
   .muestra-hint { font-size: 14px; }
   .testimonio-quote { font-size: 25px; }
@@ -1450,6 +1478,63 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
   .btn-cta-lg:hover, .wa-fab:hover { transform: none; }
 }
 
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 2000;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: #fff;
+  color: #142338;
+  font-weight: 700;
+  transform: translateY(-160%);
+}
+.skip-link:focus { transform: translateY(0); }
+.muestra-card::before { content: none; }
+.faq-q {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font-family: inherit;
+}
+.cookie-banner {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1600;
+  width: min(430px, calc(100% - 40px));
+  padding: 20px;
+  border: 1px solid #415064;
+  border-radius: 12px;
+  background: #142338;
+  color: #fff;
+  box-shadow: 0 20px 55px rgb(4 15 28 / 35%);
+}
+.cookie-banner p { color: #d8dfe6; font-size: 14px; line-height: 1.55; }
+.cookie-banner a { color: #f0cb92; text-decoration: underline; text-underline-offset: 3px; }
+.cookie-actions { display: flex; gap: 10px; margin-top: 16px; }
+.cookie-actions button {
+  min-height: 44px;
+  flex: 1;
+  padding: 9px 14px;
+  border: 1px solid #e4bb78;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.cookie-accept { background: #e4bb78; color: #142338; }
+.cookie-reject { background: transparent; color: #fff; }
+.cookie-settings {
+  border: 0;
+  background: transparent;
+  color: var(--white-50);
+  cursor: pointer;
+  font-size: 13px;
+}
+.cookie-settings:hover { color: var(--cm-gold-soft); }
+
     @media (max-width: 350px) {
       .nav-inner { padding-inline: 16px; gap: 8px; }
       .nav-inner .lc, .nav-inner .lm { font-size: 16px; }
@@ -1458,59 +1543,108 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
       .btn-nav { padding-inline: 10px; font-size: 10px; }
     }
   </style>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-17RQ4B76BR"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-17RQ4B76BR');
-    gtag('config', 'G-53TM6JHBXW');
-  </script>
-  <!-- Meta Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '26679746048367896');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=26679746048367896&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- TikTok Pixel -->
-  <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-      ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],
-      ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
-      for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-      ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
-      ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;
-      ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};
-      n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;
-      e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-      ttq.load('D9GISS3C77U6Q0JCP34G');
-      ttq.page();
-    }(window, document, 'ttq');
+    (() => {
+      const CONSENT_KEY = 'cm_consent_v1';
+      const IS_PRODUCTION = ['certimotors.com', 'www.certimotors.com'].includes(location.hostname);
+      let enabled = false;
+      let loaded = false;
+
+      const readConsent = () => {
+        try { return localStorage.getItem(CONSENT_KEY); } catch (_) { return null; }
+      };
+      const writeConsent = value => {
+        try { localStorage.setItem(CONSENT_KEY, value); } catch (_) { /* storage can be unavailable */ }
+      };
+      const loadScript = src => {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = src;
+        document.head.appendChild(script);
+      };
+      const enable = () => {
+        if (enabled) return;
+        enabled = true;
+        if (!IS_PRODUCTION) return;
+        if (loaded) {
+          if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+          if (window.fbq) window.fbq('consent', 'grant');
+          if (window.ttq) window.ttq.grantConsent();
+          return;
+        }
+        loaded = true;
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-17RQ4B76BR');
+        window.gtag('config', 'G-53TM6JHBXW');
+        loadScript('https://www.googletagmanager.com/gtag/js?id=G-17RQ4B76BR');
+
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        window.fbq('init', '26679746048367896');
+        window.fbq('track', 'PageView');
+
+        !function (w, d, t) {
+          w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+          ttq.methods=['page','track','identify','instances','debug','on','off','once','ready','alias','group','enableCookie','disableCookie','holdConsent','revokeConsent','grantConsent'];
+          ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+          for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+          ttq.instance=function(e){var n=ttq._i[e]||[];for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(n,ttq.methods[i]);return n};
+          ttq.load=function(e,n){var r='https://analytics.tiktok.com/i18n/pixel/events.js';ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};n=d.createElement('script');n.async=true;n.src=r+'?sdkid='+e+'&lib='+t;d.head.appendChild(n)};
+          ttq.load('D9GISS3C77U6Q0JCP34G');
+          ttq.page();
+        }(window, document, 'ttq');
+      };
+
+      window.CMAnalytics = {
+        consent: readConsent,
+        accept() { writeConsent('accepted'); enable(); },
+        reject() {
+          writeConsent('rejected');
+          enabled = false;
+          if (!IS_PRODUCTION || !loaded) return;
+          if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+          if (window.fbq) window.fbq('consent', 'revoke');
+          if (window.ttq) window.ttq.revokeConsent();
+        },
+        enable,
+        track(name, params = {}) {
+          if (!enabled || !IS_PRODUCTION) return;
+          if (window.gtag) window.gtag('event', name, params);
+          if (window.fbq) window.fbq('trackCustom', name, params);
+          if (window.ttq) window.ttq.track(name, params);
+        },
+        purchase(params) {
+          if (!enabled || !IS_PRODUCTION) return;
+          if (window.gtag) window.gtag('event', 'purchase', params);
+          if (window.fbq) window.fbq('track', 'Purchase', params);
+          if (window.ttq) window.ttq.track('Purchase', params);
+        }
+      };
+      if (readConsent() === 'accepted') enable();
+    })();
   </script>
 </head>
 <body>
 
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
   <div id="progress" aria-hidden="true"></div>
 
   <!-- ── NAVBAR ──────────────────────────────────────────────── -->
-  <nav id="nav" role="navigation" aria-label="Navegación principal">
+  <nav id="nav" aria-label="Navegación principal">
     <div class="container nav-inner">
-      <a href="/" class="logo-html logo-dark nav-logo-dark" aria-label="CERTIMOTORS — inicio">
+      <a href="/" class="logo-html logo-dark nav-logo-dark" aria-label="CERTIMOTORS Inspección certificada · Guatemala — inicio">
         <div class="logo-row"><span class="lc">CERTI</span><div class="ls" aria-hidden="true"></div><span class="lm">MOTORS</span></div>
         <span class="lt">Inspección certificada · Guatemala</span>
       </a>
-      <!-- Light logo (img svg): visible on scrolled white navbar -->
-      <a href="/" class="nav-logo-light" aria-label="CERTIMOTORS — inicio">
-        <img src="logo.svg" alt="CERTIMOTORS" height="32">
+      <a href="/" class="logo-html logo-light nav-logo-light" aria-label="CERTIMOTORS Inspección certificada · Guatemala — inicio">
+        <div class="logo-row"><span class="lc">CERTI</span><div class="ls" aria-hidden="true"></div><span class="lm">MOTORS</span></div>
+        <span class="lt">Inspección certificada · Guatemala</span>
       </a>
 
       <div class="nav-right">
@@ -1520,12 +1654,12 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
           <a href="#como" class="nl">Cómo funciona</a>
           <a href="#faq" class="nl">Preguntas</a>
         </div>
-        <a href="#servicios" class="btn-nav">Solicitar inspección →</a>
+        <a href="#servicios" class="btn-nav" data-analytics-event="cta_servicios_click" data-analytics-location="navegacion">Solicitar inspección →</a>
       </div>
     </div>
   </nav>
 
-  <main>
+  <main id="contenido-principal" tabindex="-1">
   <!-- ── HERO ────────────────────────────────────────────────── -->
   <section id="hero" aria-labelledby="hero-h1">
     <div class="hero-aura aura-gold" data-parallax="0.18"></div>
@@ -1540,12 +1674,12 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
         <p class="hero-sub hero-anim ha-3">
           Inspección técnica de 110 puntos + verificación legal completa, antes de que pongas un solo quetzal. Reporte con veredicto ejecutivo en 24–48h.
         </p>
-        <a href="#servicios" class="btn-primary">Ver planes y precios →</a>
+        <a href="#servicios" class="btn-primary" data-analytics-event="cta_servicios_click" data-analytics-location="hero">Ver planes y precios →</a>
         <p class="hero-micro">Desde Q300 · Válido 90 días · QR de autenticidad</p>
       </div>
     </div>
-    <a href="#trust" class="scroll-cue" aria-hidden="true">
-      <span class="scroll-mouse"></span>
+    <a href="#trust" class="scroll-cue" aria-label="Desliza a los datos clave">
+      <span class="scroll-mouse" aria-hidden="true"></span>
       Desliza
     </a>
   </section>
@@ -1734,7 +1868,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
           <p class="pack-eyebrow">Pack CERTIMOTORS</p>
           <p class="pack-p">Pack 2 inspecciones: la 2da con 40% de descuento.</p>
         </div>
-        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20informaci%C3%B3n%20del%20Pack%20de%202%20inspecciones%20con%2040%25%20de%20descuento%20en%20la%20segunda." data-wa-pack class="btn-outline" style="white-space:nowrap;flex-shrink:0;" target="_blank" rel="noopener noreferrer">Preguntar por el Pack</a>
+        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20informaci%C3%B3n%20del%20Pack%20de%202%20inspecciones%20con%2040%25%20de%20descuento%20en%20la%20segunda." data-wa-pack class="btn-outline pack-cta" target="_blank" rel="noopener noreferrer">Preguntar por el Pack</a>
       </div>
     </div>
   </section>
@@ -1744,20 +1878,22 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
   <section id="muestra" aria-labelledby="muestra-hd">
     <div class="container">
       <h2 id="muestra-hd" class="section-hd fi">Así se ve tu reporte</h2>
-      <p class="section-sub fi fi-d1">Certificados reales generados por nuestro sistema, con datos de ejemplo.</p>
+      <p class="section-sub fi fi-d1">Muestras generadas por nuestro sistema con datos ficticios.</p>
       <div class="muestra-grid fi fi-d2">
 
         <div class="muestra-card">
-          <p class="muestra-label">Certificado Estándar</p>
-          <p class="muestra-hint">Ejemplo real generado por nuestro sistema de inspección</p>
-          <a href="https://certimotors.onrender.com/api/certificados/muestra/basico" target="_blank" rel="noopener noreferrer" class="btn-muestra">
+          <img class="muestra-preview" src="assets/design/report-basic.png" width="600" height="777" loading="lazy" decoding="async" alt="Vista previa del certificado básico de 80 puntos">
+          <p class="muestra-label">Certificado básico</p>
+          <p class="muestra-hint">Ejemplo de reporte básico con 80 puntos de revisión</p>
+          <a href="/assets/muestras/certificado-basico-muestra.pdf" target="_blank" rel="noopener noreferrer" class="btn-muestra">
             Ver muestra →
           </a>
         </div>
 
         <div class="muestra-card">
+          <img class="muestra-preview" src="assets/design/report-full.webp" width="600" height="777" loading="lazy" decoding="async" alt="Vista previa de la primera página del certificado Full">
           <p class="muestra-label">Certificado Full</p>
-          <p class="muestra-hint">Ejemplo real generado por nuestro sistema de inspección</p>
+          <p class="muestra-hint">Ejemplo con datos ficticios generado por nuestro sistema</p>
           <a href="https://certimotors.onrender.com/api/certificados/muestra/full" target="_blank" rel="noopener noreferrer" class="btn-muestra">
             Ver muestra →
           </a>
@@ -1788,7 +1924,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
   <!-- ── COBERTURA ─────────────────────────────────────────── -->
   <section id="cobertura" aria-labelledby="cobertura-hd">
     <div class="container">
-      <p class="section-eyebrow fi" style="margin-bottom:12px;">Cobertura</p>
+      <p class="section-eyebrow coverage-eyebrow fi">Cobertura</p>
       <h2 id="cobertura-hd" class="section-hd fi">¿Llegamos a tu zona?</h2>
       <p class="section-sub fi fi-d1">Inspeccionamos donde se encuentre el vehículo, en el área metropolitana de Guatemala. Estas son las zonas con cobertura gratuita y las que tienen un cargo adicional de traslado.</p>
 
@@ -1818,9 +1954,9 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
     <div class="container">
       <div class="b2b-inner fi">
         <p class="section-eyebrow">Para Empresas</p>
-        <h2 id="b2b-hd" class="section-hd" style="margin-bottom:0;">¿Sos concesionaria o tenés flota?</h2>
+        <h2 id="b2b-hd" class="section-hd b2b-title">¿Sos concesionaria o tenés flota?</h2>
         <p class="b2b-copy">Certificamos varios vehículos con tarifas preferenciales para concesionarias, agencias y flotas. Escríbenos y armamos una propuesta a tu medida.</p>
-        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20represento%20una%20concesionaria%2Fflota%20y%20quiero%20cotizar%20certificaciones%20por%20volumen." data-wa-b2b class="btn-primary" style="align-self:flex-start;" target="_blank" rel="noopener noreferrer">Cotizar por volumen →</a>
+        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20represento%20una%20concesionaria%2Fflota%20y%20quiero%20cotizar%20certificaciones%20por%20volumen." data-wa-b2b class="btn-primary b2b-cta" target="_blank" rel="noopener noreferrer">Cotizar por volumen →</a>
       </div>
     </div>
   </section>
@@ -1835,40 +1971,40 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
       </div>
       <div class="faq-list" data-reveal>
         <div class="faq-item">
-          <div class="faq-q">¿Necesito estar presente durante la inspección?<span class="faq-icon" aria-hidden="true">+</span></div>
-          <div class="faq-a-wrap"><div class="faq-a">No. Coordinamos directamente con el vendedor. Tú recibes el reporte sin necesidad de ir al lugar.</div></div>
+          <button type="button" class="faq-q" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">¿Necesito estar presente durante la inspección?<span class="faq-icon" aria-hidden="true">+</span></button>
+          <section class="faq-a-wrap" id="faq-a-1" aria-labelledby="faq-q-1" aria-hidden="true"><div class="faq-a">No. Coordinamos directamente con el vendedor. Tú recibes el reporte sin necesidad de ir al lugar.</div></section>
         </div>
         <div class="faq-item">
-          <div class="faq-q">¿Cuánto tarda?<span class="faq-icon" aria-hidden="true">+</span></div>
-          <div class="faq-a-wrap"><div class="faq-a">La inspección toma 90–120 minutos en sitio. El reporte lo recibes en 24–48 horas.</div></div>
+          <button type="button" class="faq-q" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">¿Cuánto tarda?<span class="faq-icon" aria-hidden="true">+</span></button>
+          <section class="faq-a-wrap" id="faq-a-2" aria-labelledby="faq-q-2" aria-hidden="true"><div class="faq-a">La inspección toma 90–120 minutos en sitio. El reporte lo recibes en 24–48 horas.</div></section>
         </div>
         <div class="faq-item">
-          <div class="faq-q">¿El reporte tiene validez oficial?<span class="faq-icon" aria-hidden="true">+</span></div>
-          <div class="faq-a-wrap"><div class="faq-a">Incluye QR de autenticidad verificable en línea y tiene validez de 90 días desde la fecha de inspección.</div></div>
+          <button type="button" class="faq-q" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">¿El reporte tiene validez oficial?<span class="faq-icon" aria-hidden="true">+</span></button>
+          <section class="faq-a-wrap" id="faq-a-3" aria-labelledby="faq-q-3" aria-hidden="true"><div class="faq-a">Incluye QR de autenticidad verificable en línea y tiene validez de 90 días desde la fecha de inspección.</div></section>
         </div>
         <div class="faq-item">
-          <div class="faq-q">¿Qué diferencia hay con llevar el carro a un taller?<span class="faq-icon" aria-hidden="true">+</span></div>
-          <div class="faq-a-wrap"><div class="faq-a">La independencia. Un taller o agencia tiene incentivo en venderte reparaciones o el propio vehículo. CERTIMOTORS solo trabaja para el comprador, nunca para el vendedor.</div></div>
+          <button type="button" class="faq-q" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">¿Qué diferencia hay con llevar el carro a un taller?<span class="faq-icon" aria-hidden="true">+</span></button>
+          <section class="faq-a-wrap" id="faq-a-4" aria-labelledby="faq-q-4" aria-hidden="true"><div class="faq-a">La independencia. Un taller o agencia tiene incentivo en venderte reparaciones o el propio vehículo. CERTIMOTORS solo trabaja para el comprador, nunca para el vendedor.</div></section>
         </div>
         <div class="faq-item">
-          <div class="faq-q">¿Dónde hacen la inspección?<span class="faq-icon" aria-hidden="true">+</span></div>
-          <div class="faq-a-wrap"><div class="faq-a">Donde esté el vehículo, dentro del área metropolitana de Guatemala. Consulta cobertura para otros departamentos.</div></div>
+          <button type="button" class="faq-q" id="faq-q-5" aria-expanded="false" aria-controls="faq-a-5">¿Dónde hacen la inspección?<span class="faq-icon" aria-hidden="true">+</span></button>
+          <section class="faq-a-wrap" id="faq-a-5" aria-labelledby="faq-q-5" aria-hidden="true"><div class="faq-a">Donde esté el vehículo, dentro del área metropolitana de Guatemala. Consulta cobertura para otros departamentos.</div></section>
         </div>
 
         <div class="faq-item">
-          <div class="faq-q">
+          <button type="button" class="faq-q" id="faq-q-6" aria-expanded="false" aria-controls="faq-a-6">
             ¿Puedo cambiar la fecha de mi inspección?
             <span class="faq-icon" aria-hidden="true">+</span>
-          </div>
-          <div class="faq-a-wrap"><div class="faq-a">Sí. Coordinamos cualquier cambio de fecha u hora directamente por WhatsApp. Aún no tenemos una política formal de reembolsos — escríbenos y lo resolvemos caso por caso.</div></div>
+          </button>
+          <section class="faq-a-wrap" id="faq-a-6" aria-labelledby="faq-q-6" aria-hidden="true"><div class="faq-a">Sí. Coordinamos cualquier cambio de fecha u hora y las solicitudes de cancelación o reembolso directamente por WhatsApp. Cada caso se resuelve de forma individual.</div></section>
         </div>
 
         <div class="faq-item">
-          <div class="faq-q">
+          <button type="button" class="faq-q" id="faq-q-7" aria-expanded="false" aria-controls="faq-a-7">
             ¿Qué pasa si el reporte dice que no debo comprar el vehículo?
             <span class="faq-icon" aria-hidden="true">+</span>
-          </div>
-          <div class="faq-a-wrap"><div class="faq-a">El reporte es tuyo y es independiente. Si el veredicto es "negociar" o "rechazar", te explicamos los hallazgos para que tomes la decisión con información completa. CERTIMOTORS no tiene ningún interés en el resultado — trabajamos para ti, no para el vendedor.</div></div>
+          </button>
+          <section class="faq-a-wrap" id="faq-a-7" aria-labelledby="faq-q-7" aria-hidden="true"><div class="faq-a">El reporte es tuyo y es independiente. Si el veredicto es "negociar" o "rechazar", te explicamos los hallazgos para que tomes la decisión con información completa. CERTIMOTORS no tiene ningún interés en el resultado — trabajamos para ti, no para el vendedor.</div></section>
         </div>
 
 
@@ -1882,7 +2018,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
     <div class="cta-inner">
       <h2 class="cta-h2" data-reveal>¿Listo para comprar con certeza?</h2>
       <p class="cta-sub" data-reveal>Agenda en minutos. Coordinamos el lugar contigo.</p>
-      <a href="#servicios" class="btn-cta-lg" data-reveal>Solicitar inspección
+      <a href="#servicios" class="btn-cta-lg" data-reveal data-analytics-event="cta_servicios_click" data-analytics-location="cta_final">Solicitar inspección
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -1893,7 +2029,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
   <!-- ── FOOTER ──────────────────────────────────────────────── -->
   <footer id="footer">
     <div class="container footer-inner">
-      <a href="/" class="logo-html logo-dark" aria-label="CERTIMOTORS — inicio">
+      <a href="/" class="logo-html logo-dark" aria-label="CERTIMOTORS Inspección certificada · Guatemala — inicio">
         <div class="logo-row"><span class="lc">CERTI</span><div class="ls" aria-hidden="true"></div><span class="lm">MOTORS</span></div>
         <span class="lt">Inspección certificada · Guatemala</span>
       </a>
@@ -1904,8 +2040,11 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
         <a href="#cobertura">Cobertura</a>
         <a href="#b2b">Empresas</a>
         <a href="#faq">Preguntas frecuentes</a>
+        <a href="/privacidad.html">Privacidad</a>
+        <a href="/terminos.html">Términos</a>
         <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo." data-wa target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </nav>
+      <button type="button" class="cookie-settings" id="cookie-settings">Preferencias de cookies</button>
       <p class="footer-copy">© 2026 CERTIMOTORS. Todos los derechos reservados.</p>
     </div>
   </footer>
@@ -1913,7 +2052,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
 
   <!-- ── CHECKOUT MODAL ──────────────────────────────────────── -->
   <dialog id="checkout-modal" aria-labelledby="modal-title" aria-modal="true">
-    <button class="modal-close" aria-label="Cerrar" data-modal-close>✕</button>
+    <button type="button" class="modal-close" aria-label="Cerrar" data-modal-close>✕</button>
 
     <div class="modal-header">
       <span id="modal-plan-badge" class="cm-badge"></span>
@@ -1925,15 +2064,15 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
         <p class="form-section-lbl">Tus datos</p>
         <div class="form-row">
           <label for="cf-nombre">Nombre completo <span class="req" aria-hidden="true">*</span></label>
-          <input id="cf-nombre" name="nombre" type="text" required autocomplete="name" placeholder="Juan García">
+          <input id="cf-nombre" name="nombre" type="text" required autocomplete="name" maxlength="100" placeholder="Juan García">
         </div>
         <div class="form-row">
           <label for="cf-tel">WhatsApp / Teléfono <span class="req" aria-hidden="true">*</span></label>
-          <input id="cf-tel" name="telefono" type="tel" required autocomplete="tel" placeholder="41151444">
+          <input id="cf-tel" name="telefono" type="tel" required autocomplete="tel" inputmode="tel" maxlength="20" placeholder="41151444">
         </div>
         <div class="form-row">
           <label for="cf-email">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
-          <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="juan@correo.com">
+          <input id="cf-email" name="email" type="email" required autocomplete="email" maxlength="254" placeholder="juan@correo.com">
         </div>
       </div>
 
@@ -1941,17 +2080,17 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
         <p class="form-section-lbl">El vehículo</p>
         <div class="form-row">
           <label for="cf-placa">Placa <span class="req" aria-hidden="true">*</span></label>
-          <input id="cf-placa" name="placa" type="text" required placeholder="Ej. P926FTB" maxlength="10" style="text-transform:uppercase;letter-spacing:.08em">
-          <p class="form-hint">La encuentras en la tarjeta de circulación</p>
+          <input id="cf-placa" class="plate-input" name="placa" type="text" required placeholder="Ej. P926FTB" maxlength="10" aria-describedby="cf-placa-hint">
+          <p class="form-hint" id="cf-placa-hint">La encuentras en la tarjeta de circulación</p>
         </div>
         <div class="form-row form-row-2">
           <div>
             <label for="cf-marca">Marca (opcional)</label>
-            <input id="cf-marca" name="marca" type="text" placeholder="Toyota">
+            <input id="cf-marca" name="marca" type="text" maxlength="60" placeholder="Toyota">
           </div>
           <div>
             <label for="cf-modelo">Modelo (opcional)</label>
-            <input id="cf-modelo" name="modelo" type="text" placeholder="Corolla">
+            <input id="cf-modelo" name="modelo" type="text" maxlength="60" placeholder="Corolla">
           </div>
         </div>
         <div class="form-row form-row-2">
@@ -1986,9 +2125,18 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
       <div id="form-error" class="form-error" role="alert" hidden></div>
 
       <button type="submit" class="btn-primary btn-full" id="submit-btn">Continuar al pago →</button>
-      <p class="form-legal">Al continuar aceptas que CERTIMOTORS procese tus datos para coordinar la inspección. ¿Dudas? <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo." data-wa class="form-legal-wa" target="_blank" rel="noopener noreferrer">WhatsApp →</a></p>
+      <p class="form-legal">Al continuar aceptas que CERTIMOTORS procese tus datos para coordinar la inspección según el <a href="/privacidad.html">aviso de privacidad</a> y los <a href="/terminos.html">términos del servicio</a>. ¿Dudas? <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo." data-wa class="form-legal-wa" target="_blank" rel="noopener noreferrer">WhatsApp →</a></p>
     </form>
   </dialog>
+
+  <aside class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-description" hidden>
+    <strong id="cookie-title">Preferencias de cookies</strong>
+    <p id="cookie-description">Usamos analítica de Google, Meta y TikTok para medir visitas y solicitudes. Solo la activamos si aceptas. Consulta el <a href="/privacidad.html">aviso de privacidad</a>.</p>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-accept" id="cookie-accept">Aceptar</button>
+      <button type="button" class="cookie-reject" id="cookie-reject">Rechazar</button>
+    </div>
+  </aside>
 
   <!-- ── PANTALLA DE CONFIRMACIÓN ──────────────────────────────────────── -->
   <section id="paid-screen" hidden aria-label="Confirmación de pago">
@@ -1997,8 +2145,8 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
         <div class="paid-check" aria-hidden="true">✓</div>
         <h2 class="paid-h1">¡Pago recibido!</h2>
         <p class="paid-p">Tu orden está registrada. Te contactaremos en las próximas horas por WhatsApp para confirmar la fecha y hora de la inspección.</p>
-        <p class="paid-p" style="margin-top:8px">Si tienes alguna duda, escríbenos directamente.</p>
-        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo." data-wa class="btn-primary" style="margin-top:24px" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp →</a>
+        <p class="paid-p paid-followup">Si tienes alguna duda, escríbenos directamente.</p>
+        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo." data-wa class="btn-primary paid-whatsapp" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp →</a>
         <a href="/" class="paid-link">Volver al inicio</a>
       </div>
     </div>
@@ -2031,6 +2179,31 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
     wireWA('[data-wa]',      WA_URL);
     wireWA('[data-wa-pack]', WA_PACK);
     wireWA('[data-wa-b2b]',  WA_B2B);
+
+    // ── Consentimiento de analítica ──
+    const cookieBanner = document.getElementById('cookie-banner');
+    const showCookieBanner = () => {
+      cookieBanner.hidden = false;
+      document.getElementById('cookie-accept').focus({ preventScroll: true });
+    };
+    const hideCookieBanner = () => { cookieBanner.hidden = true; };
+    if (!window.CMAnalytics.consent()) cookieBanner.hidden = false;
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      window.CMAnalytics.accept();
+      hideCookieBanner();
+    });
+    document.getElementById('cookie-reject').addEventListener('click', () => {
+      window.CMAnalytics.reject();
+      hideCookieBanner();
+    });
+    document.getElementById('cookie-settings').addEventListener('click', showCookieBanner);
+    document.addEventListener('click', event => {
+      const trigger = event.target.closest('[data-analytics-event]');
+      if (!trigger) return;
+      window.CMAnalytics.track(trigger.dataset.analyticsEvent, {
+        ubicacion: trigger.dataset.analyticsLocation || 'pagina'
+      });
+    });
 
     // ── Navbar: scrolled style + hide on scroll-down ──
     const nav = document.getElementById('nav');
@@ -2118,8 +2291,18 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
       const wrap = item.querySelector('.faq-a-wrap');
       q.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a-wrap').style.maxHeight = null; });
-        if (!isOpen) { item.classList.add('open'); wrap.style.maxHeight = wrap.scrollHeight + 'px'; }
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+          i.querySelector('.faq-a-wrap').setAttribute('aria-hidden', 'true');
+          i.querySelector('.faq-a-wrap').style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          q.setAttribute('aria-expanded', 'true');
+          wrap.setAttribute('aria-hidden', 'false');
+          wrap.style.maxHeight = wrap.scrollHeight + 'px';
+        }
       });
     });
 
@@ -2155,6 +2338,14 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
     const formError     = document.getElementById('form-error');
     const submitBtn     = document.getElementById('submit-btn');
     let planActual      = null;
+    let invalidField    = null;
+
+    const formatLocalDate = date => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    };
 
     // Abrir modal al hacer clic en un botón de plan
     document.querySelectorAll('[data-checkout]').forEach(btn => {
@@ -2164,12 +2355,13 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
         const info = PLAN_INFO[planActual] || {};
         modalBadge.textContent = info.label || planActual;
         modalTitle.textContent = `Solicitar ${info.label} · ${info.precio}`;
-        formError.hidden = true;
+        clearFormError();
         checkoutForm.reset();
         // Fecha mínima: mañana
         const mañana = new Date();
         mañana.setDate(mañana.getDate() + 1);
-        document.getElementById('cf-fecha').min = mañana.toISOString().split('T')[0];
+        document.getElementById('cf-fecha').min = formatLocalDate(mañana);
+        window.CMAnalytics.track('checkout_abierto', { servicio: planActual });
         modal.showModal();
       });
     });
@@ -2183,19 +2375,22 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
     // Envío del formulario
     checkoutForm.addEventListener('submit', async e => {
       e.preventDefault();
-      formError.hidden = true;
+      clearFormError();
 
       const placa = checkoutForm.placa.value.trim().toUpperCase();
       const tel   = (checkoutForm.telefono.value || '').replace(/\D/g, '');
 
-      if (!checkoutForm.nombre.value.trim())      return mostrarError('El nombre es requerido.');
-      if (tel.length < 8)                          return mostrarError('Ingresa un teléfono válido (mínimo 8 dígitos).');
-      if (!checkoutForm.email.value.includes('@')) return mostrarError('Ingresa un correo electrónico válido.');
-      if (!placa)                                  return mostrarError('La placa es requerida para coordinar la inspección.');
-      if (!PLACA_RE.test(placa))                   return mostrarError('Formato de placa inválido. Ejemplo: P926FTB');
-      if (!checkoutForm.zona.value)                return mostrarError('Selecciona tu zona o municipio.');
+      if (!checkoutForm.nombre.value.trim()) return mostrarError('El nombre es requerido.', checkoutForm.nombre);
+      if (tel.length < 8 || tel.length > 15) return mostrarError('Ingresa un teléfono válido de 8 a 15 dígitos.', checkoutForm.telefono);
+      if (!checkoutForm.email.validity.valid) return mostrarError('Ingresa un correo electrónico válido.', checkoutForm.email);
+      if (!placa) return mostrarError('La placa es requerida para coordinar la inspección.', checkoutForm.placa);
+      if (!PLACA_RE.test(placa)) return mostrarError('Formato de placa inválido. Ejemplo: P926FTB', checkoutForm.placa);
+      if (checkoutForm.anio.value && !checkoutForm.anio.validity.valid) return mostrarError('Ingresa un año entre 1960 y 2030.', checkoutForm.anio);
+      if (!checkoutForm.zona.value) return mostrarError('Selecciona tu zona o municipio.', checkoutForm.zona);
+      if (checkoutForm.fecha_preferida.value && !checkoutForm.fecha_preferida.validity.valid) return mostrarError('Selecciona una fecha válida a partir de mañana.', checkoutForm.fecha_preferida);
 
       setLoading(true);
+      window.CMAnalytics.track('checkout_formulario_enviado', { servicio: planActual });
 
       try {
         // Paso 1 — crear orden
@@ -2216,7 +2411,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
           }),
         });
         const j1 = await r1.json();
-        if (!r1.ok) throw new Error(j1.error || 'Error al registrar la orden.');
+        if (!r1.ok) throw new Error('No pudimos registrar la orden. Intenta de nuevo.');
 
         // Paso 2 — crear checkout en Recurrente
         const r2 = await fetch(`${API_BASE}/api/pagos/crear-checkout`, {
@@ -2225,13 +2420,15 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
           body: JSON.stringify({ orden_id: j1.orden_id }),
         });
         const j2 = await r2.json();
-        if (!r2.ok) throw new Error(j2.error || 'Error al crear el pago.');
+        if (!r2.ok) throw new Error('No pudimos crear el pago. Intenta de nuevo.');
 
         // Guardar servicio para el evento de conversión al volver de Recurrente
         sessionStorage.setItem('cm_servicio', planActual);
 
-        // Redirigir al checkout de Recurrente
-        window.location.href = j2.checkout_url;
+        // Redirigir únicamente a un checkout HTTPS.
+        const checkoutURL = new URL(j2.checkout_url);
+        if (checkoutURL.protocol !== 'https:') throw new Error('El enlace de pago recibido no es seguro. Escríbenos por WhatsApp.');
+        window.location.href = checkoutURL.href;
 
       } catch (err) {
         mostrarError(err.message || 'Algo salió mal. Intenta de nuevo o contáctanos por WhatsApp.');
@@ -2239,11 +2436,35 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
       }
     });
 
-    function mostrarError(msg) {
+    function clearFormError() {
+      formError.hidden = true;
+      if (!invalidField) return;
+      invalidField.removeAttribute('aria-invalid');
+      const descriptions = (invalidField.getAttribute('aria-describedby') || '')
+        .split(/\s+/)
+        .filter(id => id && id !== 'form-error');
+      if (descriptions.length) invalidField.setAttribute('aria-describedby', descriptions.join(' '));
+      else invalidField.removeAttribute('aria-describedby');
+      invalidField = null;
+    }
+
+    function mostrarError(msg, field = null) {
       formError.textContent = msg;
       formError.hidden = false;
+      invalidField = field;
+      if (invalidField) {
+        invalidField.setAttribute('aria-invalid', 'true');
+        const descriptions = new Set((invalidField.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
+        descriptions.add('form-error');
+        invalidField.setAttribute('aria-describedby', [...descriptions].join(' '));
+        invalidField.focus({ preventScroll: true });
+      }
       formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
+
+    checkoutForm.addEventListener('input', event => {
+      if (event.target === invalidField) clearFormError();
+    });
 
     function setLoading(on) {
       submitBtn.disabled = on;
@@ -2259,26 +2480,17 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
         paid.hidden = false;
         paid.scrollIntoView({ behavior: 'smooth' });
 
-        // Evento de conversión GA4
+        // Evento de conversión con consentimiento.
         const _servicio = sessionStorage.getItem('cm_servicio') || 'DESCONOCIDO';
         const _valor    = { SCANNER: 300, ESTANDAR: 550, FULL: 800 }[_servicio] || 0;
-        gtag('event', 'checkout_completado', {
-          servicio:  _servicio,
-          orden_id:  params.get('orden') || undefined,
-          value:     _valor,
-          currency:  'GTQ',
-        });
-        fbq('track', 'Purchase', {
-          value:        _valor,
-          currency:     'GTQ',
+        window.CMAnalytics.purchase({
+          transaction_id: params.get('orden') || undefined,
+          content_id: _servicio,
           content_name: _servicio,
-        });
-        ttq.track('Purchase', {
-          content_id:   _servicio,
           content_type: 'product',
-          value:        _valor,
-          currency:     'GTQ',
-          quantity:     1,
+          value: _valor,
+          currency: 'GTQ',
+          quantity: 1,
         });
         sessionStorage.removeItem('cm_servicio');
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://certimotors.com/sitemap.xml

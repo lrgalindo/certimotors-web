@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CERTIMOTORS">
+  <rect width="64" height="64" rx="12" fill="#142338"/>
+  <path d="M15 17h18v7H22v16h11v7H15z" fill="#fff"/>
+  <path d="M37 17h7v11h5V17h7v30h-7V35h-5v12h-7z" fill="#e4bb78"/>
+</svg>
