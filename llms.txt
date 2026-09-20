@@ -1,0 +1,43 @@
+# CERTIMOTORS
+
+> CERTIMOTORS es un servicio independiente de revisión mecánica y de compra de vehículos usados en Guatemala (agencia, rodados y particulares). Un inspector revisa el vehículo donde esté, con 110 puntos de control y escáner OBD-II, y el plan Full añade verificación legal. El cliente recibe un reporte PDF con veredicto (comprar, negociar o rechazar) y un QR de autenticidad. CERTIMOTORS nunca vende vehículos: trabaja solo para el comprador.
+
+## Datos clave (verificados por la empresa)
+
+- Precios por inspección: Scanner Q300, Estándar Q550, Full Q800 (quetzales, GTQ).
+- Scanner: escaneo electrónico de fallas y reporte digital con códigos de error.
+- Estándar: inspección técnica de 110 puntos, reporte priorizado por IA, veredicto ejecutivo, QR de autenticidad, validez de 90 días.
+- Full: todo lo del Estándar más verificación de título y matrícula, consulta de gravámenes y prendas, verificación de chasis y motor (VIN), historial de multas de tránsito y validación del propietario en SAT.
+- Duración: 90–120 minutos en sitio. Reporte en 24–48 horas. No hace falta que el comprador esté presente.
+- Cobertura sin cargo de traslado: Ciudad de Guatemala (zonas 1–19), Mixco, Villa Nueva y Chinautla. Con cargo de Q75: San Miguel Petapa, Santa Catarina Pinula, Villa Canales, San José Pinula, Amatitlán y Fraijanes. Otros municipios y departamentos: se cotizan.
+- Descuento: Pack de 2 inspecciones con 40 % de descuento en la segunda. Tarifas preferenciales para concesionarias y flotas.
+- Contacto: WhatsApp +502 4255 8723 (https://wa.me/50242558723).
+- No es un avalúo comercial, ni un expertaje oficial, ni asesoría legal o notarial.
+
+## Servicios
+
+- [Revisión mecánica de vehículos](https://certimotors.com/revision-mecanica-vehiculos-guatemala/): Revisión mecánica de vehículos: qué se revisa (110 puntos, escáner OBD-II), duración y precios.
+- [Revisión de compra (inspección pre-compra)](https://certimotors.com/revision-de-compra-vehiculo-usado-guatemala/): Revisión de compra (inspección pre-compra): cuándo conviene, qué incluye y cómo funciona el veredicto.
+- [Inspección independiente de vehículos usados y seminuevos de agencia.](https://certimotors.com/inspeccion-vehiculos-usados-de-agencia-guatemala/): Inspección independiente de vehículos usados y seminuevos de agencia.
+- [Inspección de carros rodados](https://certimotors.com/inspeccion-carros-rodados-guatemala/): Inspección de carros rodados: riesgos frecuentes y verificación de VIN, estructura y situación legal.
+- [Peritaje vehicular](https://certimotors.com/peritaje-vehicular-guatemala/): Peritaje vehicular: diferencia entre peritaje, expertaje y avalúo.
+- [Verificación legal](https://certimotors.com/verificacion-legal-vehiculo-guatemala/): Verificación legal: título, matrícula, gravámenes y prendas, VIN, multas y propietario en SAT.
+
+## Guías
+
+- [Guías para compradores](https://certimotors.com/guias/): índice de guías.
+- [Checklist de qué revisar antes de comprar un carro usado](https://certimotors.com/guias/que-revisar-antes-de-comprar-carro-usado-guatemala/): Checklist de qué revisar antes de comprar un carro usado.
+- [Cuánto cuesta una revisión mecánica de un carro usado (Q300, Q550, Q800)](https://certimotors.com/guias/cuanto-cuesta-revision-mecanica-carro-usado-guatemala/): Cuánto cuesta una revisión mecánica de un carro usado (Q300, Q550, Q800).
+- [Diferencias entre carro rodado, usado de agencia y de particular](https://certimotors.com/guias/carro-rodado-vs-carro-de-agencia-guatemala/): Diferencias entre carro rodado, usado de agencia y de particular.
+- [Cómo saber si un carro tiene gravamen o prenda](https://certimotors.com/guias/como-saber-si-un-carro-tiene-gravamen-guatemala/): Cómo saber si un carro tiene gravamen o prenda.
+- [Señales de que un carro fue chocado o enderezado](https://certimotors.com/guias/senales-de-que-un-carro-fue-chocado-o-enderezado/): Señales de que un carro fue chocado o enderezado.
+
+## Sitio principal
+
+- [Inicio, planes y solicitud de inspección](https://certimotors.com/)
+- [Aviso de privacidad](https://certimotors.com/privacidad.html)
+- [Términos del servicio](https://certimotors.com/terminos.html)
+
+## Optional
+
+- [Sitemap](https://certimotors.com/sitemap.xml)
