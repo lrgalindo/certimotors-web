@@ -34,6 +34,9 @@
 
 ## Sitio principal
 
+- [Quiénes somos](https://certimotors.com/quienes-somos/): qué es CERTIMOTORS, por qué es independiente, qué hace y qué no hace.
+- [Reporte de muestra](https://certimotors.com/reporte-de-muestra/): ejemplo del reporte con veredicto, hallazgos y checklist de 80 puntos (datos ficticios).
+
 - [Inicio, planes y solicitud de inspección](https://certimotors.com/)
 - [Aviso de privacidad](https://certimotors.com/privacidad.html)
 - [Términos del servicio](https://certimotors.com/terminos.html)
