@@ -1,6 +1,6 @@
 # CERTIMOTORS
 
-> CERTIMOTORS es un servicio independiente de revisión mecánica y de compra de vehículos usados en Guatemala (agencia, rodados y particulares). Un inspector revisa el vehículo donde esté, con 110 puntos de control y escáner OBD-II, y el plan Full añade verificación legal. El cliente recibe un reporte PDF con veredicto (comprar, negociar o rechazar) y un QR de autenticidad. CERTIMOTORS nunca vende vehículos: trabaja solo para el comprador.
+> CERTIMOTORS es un servicio independiente de revisión mecánica y de compra de vehículos usados en Guatemala (agencia, rodados y particulares). Un inspector revisa el vehículo donde esté (a domicilio, en la agencia o en el predio), con 110 puntos de control y escáner OBD-II, y el plan Full añade verificación legal. El cliente recibe un reporte PDF con veredicto (comprar, negociar o rechazar) y un QR de autenticidad. CERTIMOTORS nunca vende vehículos: trabaja solo para el comprador.
 
 ## Datos clave (verificados por la empresa)
 
@@ -17,6 +17,7 @@
 ## Servicios
 
 - [Revisión mecánica de vehículos](https://certimotors.com/revision-mecanica-vehiculos-guatemala/): Revisión mecánica de vehículos: qué se revisa (110 puntos, escáner OBD-II), duración y precios.
+- [Escaneo de carro (plan Scanner)](https://certimotors.com/escaneo-de-carro-guatemala/): escaneo OBD-II a domicilio por Q300, qué significa la luz check engine y qué no detecta un escaneo.
 - [Revisión de compra (inspección pre-compra)](https://certimotors.com/revision-de-compra-vehiculo-usado-guatemala/): Revisión de compra (inspección pre-compra): cuándo conviene, qué incluye y cómo funciona el veredicto.
 - [Inspección independiente de vehículos usados y seminuevos de agencia.](https://certimotors.com/inspeccion-vehiculos-usados-de-agencia-guatemala/): Inspección independiente de vehículos usados y seminuevos de agencia.
 - [Inspección de carros rodados](https://certimotors.com/inspeccion-carros-rodados-guatemala/): Inspección de carros rodados: riesgos frecuentes y verificación de VIN, estructura y situación legal.
