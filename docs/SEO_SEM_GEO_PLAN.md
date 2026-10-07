@@ -76,7 +76,7 @@ Archivo importable de referencia: [`google-ads-keywords.csv`](google-ads-keyword
 | Verificación legal | Verificación legal de carros · Gravámenes, prendas y multas · Título, matrícula y VIN · Propietario validado en SAT · Plan Full por Q800 · Incluye revisión técnica · Reporte en 24–48 horas · Antes de pagar el enganche | Verifica gravámenes, prendas, multas, VIN y propietario antes de comprar. · Plan Full Q800: verificación legal más inspección técnica de 110 puntos. |
 | Peritaje | Peritaje vehicular Guatemala · Peritaje técnico de carros · Inspección de 110 puntos · Veredicto claro y verificable · Desde Q300 por inspección · Reporte PDF con QR · Independiente del vendedor · Atendemos todo el área metro | Peritaje técnico de carros usados con veredicto: comprar, negociar o rechazar. · Inspección independiente en el área metropolitana. Reporte en 24–48 horas. |
 
-**Extensiones:** enlaces de sitio (Planes y precios `/#servicios`, Cobertura `/#cobertura`, Guías `/guias/`, Empresas `/#b2b`), llamada (+502 4255 8723), promoción (Pack 2 inspecciones, 40 % en la segunda), ubicación (si el perfil de negocio está vinculado).
+**Extensiones:** enlaces de sitio (Planes y precios `/#servicios`, Cobertura `/#cobertura`, Guías `/guias/`, Empresas `/#b2b`), llamada (+502 4255 8723), ubicación (si el perfil de negocio está vinculado).
 
 **Negativas:** ya incluidas en el CSV (reparación, repuestos, gratis, empleo, seguro, avalúo, expertaje PNC, países distintos, etc.). Revisa el informe de términos de búsqueda cada semana durante el primer mes.
 

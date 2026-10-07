@@ -474,36 +474,6 @@
     .card-badge-abs { position: absolute; top: 22px; right: 22px; z-index: 2; }
 
     /* ═══════════════════════════════════════════════════════════
-       PACK BANNER
-    ═══════════════════════════════════════════════════════════ */
-    #pack {
-      background: var(--cm-navy);
-      padding: 48px 0;
-    }
-    .pack-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-    .pack-text { flex: 1; min-width: 260px; }
-    .pack-eyebrow {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--cm-gold);
-      margin-bottom: 10px;
-    }
-    .pack-p {
-      font-size: 17px;
-      color: var(--cm-canvas);
-      line-height: 1.55;
-      font-weight: 300;
-    }
-
-    /* ═══════════════════════════════════════════════════════════
        QUÉ INSPECCIONAMOS — 110 puntos
     ═══════════════════════════════════════════════════════════ */
     #puntos { background: var(--cm-navy); padding: 110px 0; position: relative; overflow: hidden; }
@@ -796,9 +766,6 @@
 
       /* Muestra grid → stack */
       .muestra-grid { grid-template-columns: 1fr; max-width: 100%; }
-
-      /* Pack banner → stack */
-      .pack-inner { flex-direction: column; align-items: flex-start; }
 
       /* Sections */
       #servicios, #como, #faq, #muestra, #testimonio, #cobertura, #b2b, #puntos, #porque { padding: 64px 0; }
@@ -1133,20 +1100,11 @@
     .comp-list li { font-size: 14px; line-height: 1.6; }
     .ic-ok { background: #e4bb78; color: #142338; }
 
-    /* Offer band */
-    #pack { padding: 0; background: #f4f5f2; }
-    #pack .container { padding-bottom: 80px; }
-    .pack-inner { background: #e9ddc7; border: 1px solid #d9c9ac; border-radius: 10px; padding: 32px 36px; flex-wrap: nowrap; }
-    .pack-eyebrow { font-size: 11px; color: #76501f; font-weight: 700; letter-spacing: .12em; }
-    .pack-p { font-size: 23px; line-height: 1.4; color: #142338; font-weight: 500; letter-spacing: -.025em; }
-    #pack .btn-outline { background: #142338; border-color: #142338; color: #fff; padding: 14px 22px; font-size: 14px; }
-
     /* Reveals keep the content accessible without hiding long mobile grids. */
     [data-reveal], [data-stagger] > *, .fi { transition-duration: 350ms; will-change: auto; }
     .hero-aura { will-change: auto; }
     @media (hover: hover) and (pointer: fine) {
       .card .btn-outline:hover { border-color: #142338; background: #142338; color: #fff; }
-      #pack .btn-outline:hover { background: #2c405a; }
     }
     @media (min-width: 1500px) {
       #hero { min-height: 840px; }
@@ -1187,7 +1145,6 @@
       #puntos > .container { grid-template-columns: 1fr; gap: 42px; }
       .puntos-head { position: relative; top: auto; max-width: 600px; }
       .insp-grid { gap: 0 38px; }
-      .pack-inner { padding: 28px; }
     }
     @media (max-width: 760px) {
       .container { padding-inline: 24px; }
@@ -1234,10 +1191,6 @@
       .comp-col { padding: 30px; }
       .comp-title { font-size: 19px; }
       .comp-sub, .comp-list li { font-size: 15px; }
-      .pack-inner { flex-direction: column; align-items: stretch; gap: 22px; padding: 28px; }
-      .pack-text { min-width: 0; }
-      .pack-p { font-size: 24px; }
-      #pack .container { padding-bottom: 64px; }
       [data-stagger] > *, [data-reveal], .fi { opacity: 1; transform: none; }
     }
     @media (max-width: 480px) {
@@ -1485,7 +1438,6 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
 .form-legal a { color: #30465d; text-decoration: underline; text-underline-offset: 3px; }
 .form-legal-wa { color: #30465d; text-decoration: underline; text-underline-offset: 3px; }
 .plate-input { text-transform: uppercase; letter-spacing: .08em; }
-.pack-cta { white-space: nowrap; flex-shrink: 0; }
 .coverage-eyebrow { margin-bottom: 12px; }
 .b2b-title { margin-bottom: 0; }
 .b2b-cta { align-self: flex-start; }
@@ -1921,20 +1873,6 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
     </div>
   </section>
 
-  <!-- ── PACK BANNER ───────────────────────────────────────── -->
-  <section id="pack" aria-label="Pack de inspecciones">
-    <div class="container">
-      <div class="pack-inner fi">
-        <div class="pack-text">
-          <p class="pack-eyebrow">Pack CERTIMOTORS</p>
-          <p class="pack-p">Pack 2 inspecciones: la 2da con 40% de descuento.</p>
-        </div>
-        <a href="https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20informaci%C3%B3n%20del%20Pack%20de%202%20inspecciones%20con%2040%25%20de%20descuento%20en%20la%20segunda." data-wa-pack class="btn-outline pack-cta" target="_blank" rel="noopener noreferrer">Preguntar por el Pack</a>
-      </div>
-    </div>
-  </section>
-
-
   <!-- ── MUESTRA ───────────────────────────────────────────── -->
   <section id="muestra" aria-labelledby="muestra-hd">
     <div class="container">
@@ -2244,7 +2182,6 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const WA_URL  = 'https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20solicitar%20una%20inspecci%C3%B3n%20de%20veh%C3%ADculo.';
-    const WA_PACK = 'https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20quiero%20informaci%C3%B3n%20del%20Pack%20de%202%20inspecciones%20con%2040%25%20de%20descuento%20en%20la%20segunda.';
     const WA_B2B  = 'https://wa.me/50242558723?text=Hola%20CERTIMOTORS%2C%20represento%20una%20concesionaria%2Fflota%20y%20quiero%20cotizar%20certificaciones%20por%20volumen.';
 
     const wireWA = (selector, url) => document.querySelectorAll(selector).forEach(el => {
@@ -2256,7 +2193,6 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
     });
 
     wireWA('[data-wa]',      WA_URL);
-    wireWA('[data-wa-pack]', WA_PACK);
     wireWA('[data-wa-b2b]',  WA_B2B);
 
     // ── Consentimiento de analítica ──
@@ -2576,7 +2512,7 @@ dialog#checkout-modal::backdrop { background: rgb(13 26 44 / 68%); backdrop-filt
         // Reconectar el botón de WhatsApp dentro de la pantalla de confirmación
         wireWA('#paid-screen [data-wa]', WA_URL);
         // Ocultar hero y trust strip para que la confirmación ocupe el foco
-        ['hero', 'trust', 'servicios', 'como', 'pack'].forEach(id => {
+        ['hero', 'trust', 'servicios', 'como'].forEach(id => {
           const s = document.getElementById(id);
           if (s) s.hidden = true;
         });
