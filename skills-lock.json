@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "seo-geo": {
+      "source": "primoarc/seo-geo-skill",
+      "sourceType": "github",
+      "skillPath": "skills/seo-geo/SKILL.md",
+      "computedHash": "fc1c4e4f8099f110d172159f1c984a331830d3b90be25a4c9f7aade25d6b20d0"
+    }
+  }
+}
