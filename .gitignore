@@ -1,1 +1,4 @@
 .DS_Store
+
+# Llaves de servicio (Search Console, etc.)
+.secrets/
