@@ -8,7 +8,7 @@
 - Scanner: escaneo electrónico de fallas y reporte digital con códigos de error.
 - Estándar: inspección técnica de 110 puntos, reporte priorizado por IA, veredicto ejecutivo, QR de autenticidad, validez de 90 días.
 - Full: todo lo del Estándar más verificación de título y matrícula, consulta de gravámenes y prendas, verificación de chasis y motor (VIN), historial de multas de tránsito y validación del propietario en SAT.
-- Duración: 90–120 minutos en sitio. Reporte en 24–48 horas. No hace falta que el comprador esté presente.
+- Duración: 40–60 minutos en sitio. Reporte en 24–48 horas. No hace falta que el comprador esté presente.
 - Cobertura sin cargo de traslado: Ciudad de Guatemala (zonas 1–19), Mixco, Villa Nueva y Chinautla. Con cargo de Q75: San Miguel Petapa, Santa Catarina Pinula, Villa Canales, San José Pinula, Amatitlán y Fraijanes. Otros municipios y departamentos: se cotizan.
 - Volumen: tarifas preferenciales para concesionarias y flotas.
 - Contacto: WhatsApp +502 4255 8723 (https://wa.me/50242558723).
